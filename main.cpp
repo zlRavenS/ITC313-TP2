@@ -5,5 +5,5 @@ int main(){
 
 	Magasin EasyStore;
 
-	return 0;
+return 0;
 }
