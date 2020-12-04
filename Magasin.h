@@ -19,8 +19,8 @@ public:
 private:
 
 	std::vector<Produit*> _produit;
-	std::vector<Client*> _client;
-	std::vector<Commande*> _commande;
+/*	std::vector<Client*> _client;
+	std::vector<Commande*> _commande; Pas encore implémenté*/ 
 
 };
 #endif
