@@ -17,12 +17,12 @@ public:
 
 	Magasin();
 
-	void addProduit(Produit* produit);
+	void addProduit(Produit produit);
 	void display();
 
 private:
 
-	std::vector<Produit*> _produit;
+	std::vector<Produit> _produit;
 /*	std::vector<Client*> _client;
 	std::vector<Commande*> _commande; Pas encore implémenté*/ 
 
