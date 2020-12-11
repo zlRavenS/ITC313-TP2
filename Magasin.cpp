@@ -13,3 +13,13 @@ Magasin::Magasin(){
 
 }
 
+void Magasin::addProduit(Produit* produit) {
+	_produit.push_back(produit);
+}
+
+void Magasin::display() {
+	for (int i=0; i<_produit.size();i++){
+ 		std::cout << "NOM 		DESCRIPTION 		QUANTITE		PRIX "<< std::endl;
+ 		std::cout << _produit.at(i) << std::endl;
+ 	}
+}
