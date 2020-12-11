@@ -29,7 +29,7 @@ public:
     std::string getTitre() const;
     std::string getDescription() const;
     int getQuantite() const;
-    float getPrixU() const;
+    float getPrix() const;
 
     void setQuantite(int quantite);
 
@@ -43,3 +43,10 @@ private:
 
 
 };
+
+// As Usual, surcharge de l'opérateur <<
+
+std::ostream& operator << (std::ostream& output, Produit& obj);
+
+
+#endif

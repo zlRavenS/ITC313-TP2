@@ -37,3 +37,10 @@ void Produit::setQuantite(int quantite)
 {
     _quantite = quantite;
 }
+
+
+std::ostream& operator << (std::ostream& output, Produit& obj) {
+    output << obj.getTitre() << "  " << obj.getDescription() << "   (" << obj.getQuantite() << ")  " << obj.getPrix() << "  €" << std::endl;
+
+    return output;
+}
