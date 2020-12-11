@@ -34,10 +34,10 @@ float Produit::getPrix() const
     return _prix;
 }
 
-void Produit::setQuantite(int quantite)
+/*void Produit::setQuantite(int quantite)
 {
     _quantite = quantite;
-}
+}*/
 
 
 std::ostream& operator << (std::ostream& output, Produit& obj) {

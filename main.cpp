@@ -4,7 +4,7 @@
 int main() {
 
 	Magasin EasyStore;
-	Produit prod1;
+	Produit* prod1 = new Produit();
 
 	std::cout << prod1 << std::endl;
 

@@ -31,7 +31,7 @@ public:
     int getQuantite() const;
     float getPrix() const;
 
-    void setQuantite(int quantite);
+   // void setQuantite(int quantite);
 
 
 private:
@@ -44,7 +44,7 @@ private:
 
 };
 
-// As Usual, surcharge de l'opeateur <<
+// As Usual, surcharge de l'operateur <<
 
 std::ostream& operator << (std::ostream& output, Produit& obj);
 

@@ -17,14 +17,16 @@ public:
 
 	Magasin();
 
-	void addProduit(Produit produit);
+	void addProduit(Produit* produit);
 	void display();
+	/*void displayFiltre(std::string nom);
+	void setQtt(int n, Produit* produit);*/
 
 private:
 
-	std::vector<Produit> _produit;
-/*	std::vector<Client*> _client;
-	std::vector<Commande*> _commande; Pas encore implémenté*/ 
+	std::vector<Produit*> _produit;
+	/*std::vector<Client*> _client;
+	std::vector<Commande*> _commande;*/
 
 };
 #endif
