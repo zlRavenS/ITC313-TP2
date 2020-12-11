@@ -1,7 +1,7 @@
 /*
   *Fichier:	Magasin.h
   *Author:	Rémi Lefaivre (Remi_Lefaivre@etu.u-bourgogne.fr)
-  *Date: 	04/12/2020
+  *Date: 	11/12/2020
   *Summary: Declaration de la classe Magasin
 */
 
@@ -23,7 +23,7 @@ private:
 
 	std::vector<Produit*> _produit;
 /*	std::vector<Client*> _client;
-	std::vector<Commande*> _commande; Pas encore implémenté*/
+	std::vector<Commande*> _commande; Pas encore implémenté*/ 
 
 };
 #endif
