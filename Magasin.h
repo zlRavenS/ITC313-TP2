@@ -9,6 +9,7 @@
 #define MAGASIN_H
 
 #include <vector>
+#include "Produit.h"
 
 class Magasin{
 

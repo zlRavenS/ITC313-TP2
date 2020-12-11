@@ -15,7 +15,7 @@
 #include <vector>
 
 
-//Création de la classe produit
+//Creation de la classe produit
 
 class Produit {
 
@@ -38,13 +38,13 @@ private:
     std::string _titre;
     std::string _description;
     int _quantite;
-    float _prix
+    float _prix;
 
 
 
 };
 
-// As Usual, surcharge de l'opérateur <<
+// As Usual, surcharge de l'opeateur <<
 
 std::ostream& operator << (std::ostream& output, Produit& obj);
 

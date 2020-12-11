@@ -11,6 +11,7 @@
 
 Produit::Produit(std::string titre, std::string description, int quantite, float prix)
 {
+	
 }
 
 std::string Produit::getTitre() const
@@ -40,7 +41,7 @@ void Produit::setQuantite(int quantite)
 
 
 std::ostream& operator << (std::ostream& output, Produit& obj) {
-    output << obj.getTitre() << "  " << obj.getDescription() << "   (" << obj.getQuantite() << ")  " << obj.getPrix() << "  €" << std::endl;
+    output << obj.getTitre() << "  " << obj.getDescription() << "   (" << obj.getQuantite() << ")  " << obj.getPrix() << "  ?" << std::endl;
 
     return output;
 }
