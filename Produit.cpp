@@ -14,6 +14,11 @@ Produit::Produit(std::string titre, std::string description, int quantite, float
 
 }
 
+Produit::Produit() : _titre("PS5"), _description("Console de Jeu"), _quantite(1), _prix(499.99)
+{
+
+}
+
 std::string Produit::getTitre() const
 {
     return _titre;

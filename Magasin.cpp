@@ -21,8 +21,8 @@ void Magasin::addProduit(Produit* produit) {
 void Magasin::display() {
  	std::cout << "    NOM 	|	 DESCRIPTION 	|	QUANTITE	|	PRIX   "<< std::endl;
  	std::cout << "----------------------------------------------------------------------------"<< std::endl;
- 		for (int i=0; i<_produit.size();i++){
- 			std::cout << _produit.at(i) << std::endl;
+ 		for (int i=0; i< _produit.size(); i++){
+ 			std::cout << *_produit.at(i);
  	};
 }
 
