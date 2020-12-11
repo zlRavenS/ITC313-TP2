@@ -22,7 +22,7 @@ class Produit {
 public:
 
 
-    Produit(std::string titre = "PS5", std::string description = "Console de Jeu", int quantite = 1, float prix = 0.0);
+    Produit(std::string titre = "PS5", std::string description = "Console de Jeu", int quantite = 1, float prix = 499.99);
 
     //Getters et Setters
        
