@@ -28,7 +28,7 @@ int Produit::getQuantite() const
     return _quantite;
 }
 
-float Produit::getPrixU() const
+float Produit::getPrix() const
 {
     return _prix;
 }
