@@ -26,31 +26,31 @@ void Magasin::display() {
  	};
 }
 
-/*void Magasin::displayFiltre(std::string nom) {
+
+void Magasin::displayFiltre(std::string nom) {
 	int j=0;
 	for (int i=0; i<_produit.size();i++){
- 			if(_produit.at(i)->getTitre() == nom){
- 				std::cout << _produit.at(i) << std::endl;
- 				j++;
+		Produit *p = _produit.at(i); 
+ 		if(p->getTitre() == nom){
+ 			j++;
+ 		}
+ 	}
+ 	if( j == 0) {
+ 		std::cout << "Cet article n'est pas en stock \n" << std::endl;
+ 	}
+ 	else{
+		std::cout << "    NOM 	|	 DESCRIPTION 	|	QUANTITE	|	PRIX   "<< std::endl;
+ 		std::cout << "----------------------------------------------------------------------------"<< std::endl;
+ 		for (int i=0; i<j; i++){
+ 			Produit *p = _produit.at(i); 
+ 			if(p->getTitre() == nom){
+ 				std::cout << *p << std::endl;
  			}
  		}
- 		if( j == 0) {
- 			std::cout << "Cet article n'est pas en stock \n" << std::endl;
- 		}
- 		else{
-			std::cout << "    NOM 	|	 DESCRIPTION 	|	QUANTITE	|	PRIX   "<< std::endl;
- 			std::cout << "----------------------------------------------------------------------------"<< std::endl;
- 			for (int i=0; i<_produit.size();i++){
- 				if(_produit.at(i)->getTitre() == nom){
- 					std::cout << _produit.at(i) << std::endl;
- 				}
- 			}
- 		}
- 		if( j == 0) {
- 			std::cout << "Cet article n'est pas en stock \n" << std::endl;
- 		}
+ 	}
 }
 
+/*
 void Magasin::setQtt(int n, Produit produit){
  	produit->setQuantite(n);
  }*/

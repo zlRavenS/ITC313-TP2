@@ -19,7 +19,7 @@ Produit::Produit() : _titre("PS5"), _description("Console de Jeu"), _quantite(1)
 
 }
 
-std::string Produit::getTitre() const
+std::string Produit::getTitre()
 {
     return _titre;
 }

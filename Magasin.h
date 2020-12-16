@@ -19,8 +19,8 @@ public:
 
 	void addProduit(Produit* produit);
 	void display();
-	/*void displayFiltre(std::string nom);
-	void setQtt(int n, Produit* produit);*/
+	void displayFiltre(std::string nom);
+	//void setQtt(int n, Produit* produit);
 
 private:
 

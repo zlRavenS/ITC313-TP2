@@ -27,7 +27,7 @@ public:
 
     //Getters et Setters
        
-    std::string getTitre() const;
+    std::string getTitre();
     std::string getDescription() const;
     int getQuantite() const;
     float getPrix() const;
