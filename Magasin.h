@@ -1,7 +1,7 @@
 /*
   *Fichier:	Magasin.h
   *Author:	Rémi Lefaivre (Remi_Lefaivre@etu.u-bourgogne.fr)
-  *Date: 	11/12/2020
+  *Date: 	16/12/2020
   *Summary: Declaration de la classe Magasin
 */
 
@@ -10,6 +10,7 @@
 
 #include <vector>
 #include "Produit.h"
+#include "Client.h"
 
 class Magasin{
 
@@ -18,6 +19,7 @@ public:
 	Magasin();
 
 	void addProduit(Produit* produit);
+	void addClient(Client* client);
 	void display();
 	void displayFiltre(std::string nom);
 	void setQtt(int n, std::string nom);
@@ -25,8 +27,8 @@ public:
 private:
 
 	std::vector<Produit*> _produit;
-	/*std::vector<Client*> _client;
-	std::vector<Commande*> _commande;*/
+	std::vector<Client*> _client;
+	//std::vector<Commande*> _commande;
 
 };
 #endif

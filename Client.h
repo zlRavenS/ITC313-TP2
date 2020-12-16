@@ -17,26 +17,28 @@ class Client{
 
 public:
 
-	Produit();
-	Produit(std::string nom, std::string prenom, int id, std::vector<Produit> panier);
+	Client(std::string nom, std::string prenom);
+	Client();
 
 	int getID();
 	std::string getPrenom();
 	std::string getNom();
-	std::vector<Produit> getPanier();
+	std::vector<Produit*> getPanier();
 
-	void add();
-
-
-
+	void addtoCart(Produit* produit);
+	void clearCart();
+	void changeQuantity(std::string nom, int quantite);
+	void deleteProduit();
 
 private:
 
 	int _id;
 	std::string _prenom;
 	std::string _nom;
-	std::vector<Produit> _panier;
+	std::vector<Produit*> _panier;
 
+};
 
+std::ostream& operator << (std::ostream& output, Client& obj);
 
-}
+#endif

@@ -1,7 +1,7 @@
 /*
   *Fichier:	Magasin.cpp
   *Author:	Rémi Lefaivre (Remi_Lefaivre@etu.u-bourgogne.fr)
-  *Date: 	11/12/2020
+  *Date: 	16/12/2020
   *Summary: Declaration de la classe Magasin
 */
 
@@ -15,6 +15,10 @@ Magasin::Magasin(){
 
 void Magasin::addProduit(Produit* produit) {
 	_produit.push_back(produit);
+}
+
+void Magasin::addClient(Client* client) {
+	_client.push_back(client);
 }
 
 

@@ -6,41 +6,66 @@
 */
 
 #include "Client.h"
-#include <iostream>
-#include <string>
-#include <vector>
 
 
-Client::Client(std::string nom, std::string prenom, int id, std::vector<Produit> panier) : _nom(nom), _prenom(prenom), _id(id), _panier(panier){
+Client::Client(std::string nom, std::string prenom) : _nom(nom), _prenom(prenom), _id(rand()%100) {
 
 }
 
-Client::Client(){
+Client::Client() : _nom("Dos Santos"), _prenom("Miguel"), _id(rand()%100) {
 
 }
 
-std::string Produit::getPrenom()
+std::string Client::getPrenom()
 {
     return _prenom;
 }
 
-std::string Produit::getNom()
+std::string Client::getNom()
 {
     return _nom;
 }
 
-int Produit::getID()
+int Client::getID()
 {
     return _id;
 }
 
-std::vector<Produit> getPanier()
+std::vector<Produit*> Client::getPanier()
 {
 	return _panier;
 }
 
-void Produit::add(){
+void Client::addtoCart(Produit* produit){
+	_panier.push_back(produit);
+}
 
+void Client::clearCart(){
+	_panier.clear();
+}
 
+void Client::changeQuantity(std::string nom, int quantite){
+	for(int i=0; i<_panier.size(); i++){
+		Produit *article = _panier.at(i);
+		if(article->getTitre() == nom){
+			article->setQuantite(quantite);
+		}
+	}
+}
 
+void Client::deleteProduit(){
+	
+}
+
+std::ostream& operator << (std::ostream& output, Client& obj) {
+    output << obj.getNom() << " " << obj.getPrenom() << " | n°" << obj.getID() << " | Panier : \n";
+    std::vector<Produit*> panier = obj.getPanier();
+    if(panier.size() != 0){
+    	std::cout << "    PRODUIT 	|	 DESCRIPTION 	|	QUANTITE	|	PRIX   "<< std::endl;
+    	for (int i=0; i<panier.size(); i++){
+    		output << "  -" << *panier.at(i) << std::endl;
+    	};
+	};
+    output << std::endl;
+    return output;
 }
