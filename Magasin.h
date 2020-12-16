@@ -20,7 +20,7 @@ public:
 	void addProduit(Produit* produit);
 	void display();
 	void displayFiltre(std::string nom);
-	//void setQtt(int n, Produit* produit);
+	void setQtt(int n, std::string nom);
 
 private:
 

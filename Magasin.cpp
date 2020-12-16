@@ -24,6 +24,7 @@ void Magasin::display() {
  		for (int i=0; i< _produit.size(); i++){
  			std::cout << *_produit.at(i);
  	};
+ 	std::cout << "\n \n" << std::endl;
 }
 
 
@@ -41,16 +42,24 @@ void Magasin::displayFiltre(std::string nom) {
  	else{
 		std::cout << "    NOM 	|	 DESCRIPTION 	|	QUANTITE	|	PRIX   "<< std::endl;
  		std::cout << "----------------------------------------------------------------------------"<< std::endl;
- 		for (int i=0; i<j; i++){
+ 		for (int i=0; i<_produit.size(); i++){
  			Produit *p = _produit.at(i); 
  			if(p->getTitre() == nom){
  				std::cout << *p << std::endl;
  			}
  		}
  	}
+ 	std::cout << "\n" << std::endl;
 }
 
-/*
-void Magasin::setQtt(int n, Produit produit){
- 	produit->setQuantite(n);
- }*/
+
+void Magasin::setQtt(int n, std::string nom){
+	for (int i=0; i<_produit.size();i++){
+		Produit *p = _produit.at(i); 
+ 		if(p->getTitre() == nom){
+ 			p->setQuantite(n);
+ 		}
+ 	}
+ 	std::cout << "Quantité de " << nom << " mise à jour !" << std::endl;
+ 	std::cout << "Il y a désormais " << n << nom << "\n" << std::endl;
+ }

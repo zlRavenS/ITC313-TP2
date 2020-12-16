@@ -32,7 +32,7 @@ public:
     int getQuantite() const;
     float getPrix() const;
 
-   // void setQuantite(int quantite);
+    void setQuantite(int quantite);
 
 
 private:
@@ -40,8 +40,6 @@ private:
     std::string _description;
     int _quantite;
     float _prix;
-
-
 
 };
 

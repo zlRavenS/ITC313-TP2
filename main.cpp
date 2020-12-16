@@ -12,19 +12,19 @@ int main() {
 	Produit *p2 = &prod2;
 
 	//Vérification de l'allocution
-	std::cout << *p1 << std::endl;
-	std::cout << "\n" << std::endl;
+	std::cout << *p1 << "\n" << std::endl;
 
 	//Test de la fonction addProduit()
 	EasyStore.addProduit(p1);
 	EasyStore.addProduit(p2);
 	EasyStore.display();
-	std::cout << "\n" << std::endl;
 
 	//Test de la fonction displayFiltre()
-	EasyStore.addProduit(p2);
-	EasyStore.displayFiltre("Switch");
-	std::cout << "\n" << std::endl;
+	EasyStore.displayFiltre("PS5");
+	
+	//Test de la fonction setQtt()
+	EasyStore.setQtt(5, "Xbox");
+	EasyStore.display();
 
 return 0;
 }
