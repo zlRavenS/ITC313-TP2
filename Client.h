@@ -17,7 +17,7 @@ class Client{
 
 public:
 
-	Client(std::string nom, std::string prenom);
+	Client(std::string nom, std::string prenom, int id);
 	Client();
 
 	int getID();
@@ -29,6 +29,8 @@ public:
 	void clearCart();
 	void changeQuantity(std::string nom, int quantite);
 	void deleteProduit();
+
+	void setIdentifiant(int id);
 
 private:
 

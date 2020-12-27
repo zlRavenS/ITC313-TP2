@@ -18,11 +18,17 @@ public:
 
 	Magasin();
 
-	void addProduit(Produit* produit);
-	void addClient(Client* client);
-	void display();
-	void displayFiltre(std::string nom);
-	void setQtt(int n, std::string nom);
+	void addProduit(std::string titre, std::string description, int quantite, float prix);
+	void displayProd();
+	void displayProdFiltre(std::string titre);
+	void setQtt(std::string titre, int n);
+
+	void addClient(std::string nom, std::string prenom);
+	void displayClients();
+	void displayClientNom(std::string nom, std::string prenom);
+	void displayClientID(int id);
+
+	void setID(int id);
 
 private:
 

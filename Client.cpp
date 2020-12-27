@@ -8,11 +8,11 @@
 #include "Client.h"
 
 
-Client::Client(std::string nom, std::string prenom) : _nom(nom), _prenom(prenom), _id(rand()%100) {
+Client::Client(std::string nom, std::string prenom, int id) : _nom(nom), _prenom(prenom), _id(id) {
 
 }
 
-Client::Client() : _nom("Dos Santos"), _prenom("Miguel"), _id(rand()%100) {
+Client::Client() : _nom("Dos Santos"), _prenom("Miguel") {
 
 }
 
@@ -36,6 +36,9 @@ std::vector<Produit*> Client::getPanier()
 	return _panier;
 }
 
+
+
+
 void Client::addtoCart(Produit* produit){
 	_panier.push_back(produit);
 }
@@ -58,14 +61,18 @@ void Client::deleteProduit(){
 }
 
 std::ostream& operator << (std::ostream& output, Client& obj) {
-    output << obj.getNom() << " " << obj.getPrenom() << " | n°" << obj.getID() << " | Panier : \n";
+    output << "-" << obj.getNom() << " " << obj.getPrenom() << " | n°" << obj.getID() << " | Panier : \n";
     std::vector<Produit*> panier = obj.getPanier();
     if(panier.size() != 0){
-    	std::cout << "    PRODUIT 	|	 DESCRIPTION 	|	QUANTITE	|	PRIX   "<< std::endl;
     	for (int i=0; i<panier.size(); i++){
-    		output << "  -" << *panier.at(i) << std::endl;
+    		output << "   -->" << *panier.at(i) << std::endl;
     	};
 	};
     output << std::endl;
     return output;
+}
+
+void Client::setIdentifiant(int id)
+{
+  _id = id;
 }
