@@ -68,6 +68,8 @@ void Magasin::setQtt(std::string titre, int n){
 
 
 
+
+
 void Magasin::addClient(std::string nom, std::string prenom) {
 	int id = _client.size() + 1;
 	Client *client = new Client(nom, prenom, id);
@@ -83,7 +85,8 @@ void Magasin::addClient(std::string nom, std::string prenom) {
  	std::cout << "\n \n" << std::endl;
 }
 
-void Magasin::displayClientNom(std::string nom, std::string prenom) {
+
+void Magasin::displayClientFiltre(std::string nom, std::string prenom) {
 	int n=0, p=0;
 	for (int i=0; i<_client.size();i++){
 		Client *c = _client.at(i); 
@@ -115,7 +118,8 @@ void Magasin::displayClientNom(std::string nom, std::string prenom) {
  	std::cout << "\n" << std::endl;
 }
 
-void Magasin::displayClientID(int id) {
+
+void Magasin::displayClientFiltre(int id) {
 	int n=0;
 	if(id > _client.size()){
 		std::cout << "Cet ID ne correspond à aucun client \n" << std::endl;
@@ -130,6 +134,51 @@ void Magasin::displayClientID(int id) {
 		}
 	std::cout << "\n" << std::endl;
 }
+
+/*
+void Magasin::addtoPanier(std::string titre, std::string nom, std::string prenom) {
+	int n=0, p=0;
+	for (int i=0; i<_client.size();i++){
+		Client *c = _client.at(i); 
+ 		if(c->getNom() == nom){
+ 			n++;
+ 		}
+ 	}
+ 	if( n == 0) {
+ 		std::cout << "Cette personne n'est pas un client \n" << std::endl;
+ 	}
+ 	else{
+ 		for (int i=0; i<_client.size();i++){
+			Client *c = _client.at(i); 
+ 			if(c->getPrenom() == prenom){
+ 				p++;
+ 			}
+ 		}
+ 		if( p != 0) { 		
+			std::cout << "    Nom	 Prénom    |	ID   "<< std::endl;
+ 			std::cout << "-----------------------------------------------------"<< std::endl;
+ 			for (int i=0; i<_client.size(); i++){
+ 				Client *c = _client.at(i); 
+ 				if(c->getPrenom() == prenom){
+ 					for(int j=0; j<_produit.size(); j++){
+ 						Produit *p = _produit.at(j);
+ 						if(p->getTitre() == titre){
+ 							c->addtoCart(titre);
+ 						}
+ 					}
+ 				}
+ 				std::cout << *c << std::endl;
+ 			}
+ 		}
+ 	}
+ 	std::cout << "\n" << std::endl;
+}
+*/
+
+
+
+
+
 
 void Magasin::setID(int id)
 {

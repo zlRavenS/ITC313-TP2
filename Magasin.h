@@ -25,8 +25,10 @@ public:
 
 	void addClient(std::string nom, std::string prenom);
 	void displayClients();
-	void displayClientNom(std::string nom, std::string prenom);
-	void displayClientID(int id);
+	void displayClientFiltre(std::string nom, std::string prenom);
+	void displayClientFiltre(int id);
+	void addtoPanier(std::string titre, std::string nom, std::string prenom);
+	void addtoPanier(std::string titre, int id);
 
 	void setID(int id);
 

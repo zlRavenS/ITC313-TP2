@@ -12,7 +12,7 @@ Client::Client(std::string nom, std::string prenom, int id) : _nom(nom), _prenom
 
 }
 
-Client::Client() : _nom("Dos Santos"), _prenom("Miguel") {
+Client::Client() : _nom("Dos Santos"), _prenom("Miguel"), _id(2) {
 
 }
 
@@ -39,9 +39,15 @@ std::vector<Produit*> Client::getPanier()
 
 
 
-void Client::addtoCart(Produit* produit){
-	_panier.push_back(produit);
+/*void Client::addtoCart(std::string titre){
+  for(int i=0; i<_produit.size(); i++) {
+    Produit *p = _produit.at(i);
+    if(p->getTitre() == titre){
+      _panier.push_back(p);
+    }
+  }
 }
+*/
 
 void Client::clearCart(){
 	_panier.clear();

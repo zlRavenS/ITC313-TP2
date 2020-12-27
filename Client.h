@@ -25,7 +25,7 @@ public:
 	std::string getNom();
 	std::vector<Produit*> getPanier();
 
-	void addtoCart(Produit* produit);
+	void addtoCart(std::string titre);
 	void clearCart();
 	void changeQuantity(std::string nom, int quantite);
 	void deleteProduit();
