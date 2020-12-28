@@ -16,6 +16,7 @@ Magasin::Magasin(){
 void Magasin::addProduit(std::string titre, std::string description, int quantite, float prix) {
 	Produit *produit = new Produit(titre, description, quantite, prix);
 	this->_produit.push_back(produit);
+	delete produit;
 }
 
 
@@ -74,6 +75,7 @@ void Magasin::addClient(std::string nom, std::string prenom) {
 	int id = _client.size() + 1;
 	Client *client = new Client(nom, prenom, id);
 	this->_client.push_back(client);
+	delete client;
 }
 
  void Magasin::displayClients() {
@@ -186,4 +188,8 @@ void Magasin::setID(int id)
 		Client *c = _client.at(i); 
  		c->setIdentifiant(i+1);
  	}	
+}
+
+std::vector<Produit*> Magasin::getProd() {
+	return _produit;
 }

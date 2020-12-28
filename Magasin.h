@@ -31,6 +31,7 @@ public:
 	void addtoPanier(std::string titre, int id);
 
 	void setID(int id);
+	std::vector<Produit*> getProd();
 
 private:
 

@@ -39,15 +39,16 @@ std::vector<Produit*> Client::getPanier()
 
 
 
-/*void Client::addtoCart(std::string titre){
-  for(int i=0; i<_produit.size(); i++) {
-    Produit *p = _produit.at(i);
+void Client::addtoCart(std::string titre){
+  std::vector<Produit*> prod = EasyStore.getProd();
+  for(int i=0; i<prod.size(); i++) {
+    Produit *p = prod.at(i);
     if(p->getTitre() == titre){
       _panier.push_back(p);
     }
   }
 }
-*/
+
 
 void Client::clearCart(){
 	_panier.clear();
