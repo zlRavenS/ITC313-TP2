@@ -122,7 +122,6 @@ void Magasin::displayClientFiltre(std::string nom, std::string prenom) {
 
 
 void Magasin::displayClientFiltre(int id) {
-	int n=0;
 	if(id > _client.size()){
 		std::cout << "Cet ID ne correspond à aucun client \n" << std::endl;
 	}
@@ -177,19 +176,3 @@ void Magasin::addtoPanier(std::string titre, std::string nom, std::string prenom
 }
 */
 
-
-
-
-
-
-void Magasin::setID(int id)
-{
-	for (int i=0; i<_client.size();i++){
-		Client *c = _client.at(i); 
- 		c->setIdentifiant(i+1);
- 	}	
-}
-
-std::vector<Produit*> Magasin::getProd() {
-	return _produit;
-}

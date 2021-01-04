@@ -28,9 +28,7 @@ public:
 	void addtoCart(std::string titre);
 	void clearCart();
 	void changeQuantity(std::string nom, int quantite);
-	void deleteProduit();
-
-	void setIdentifiant(int id);
+	void deleteProduit(std::string titre);
 
 private:
 

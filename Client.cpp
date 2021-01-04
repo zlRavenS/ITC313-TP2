@@ -40,13 +40,9 @@ std::vector<Produit*> Client::getPanier()
 
 
 void Client::addtoCart(std::string titre){
-  std::vector<Produit*> prod = EasyStore.getProd();
-  for(int i=0; i<prod.size(); i++) {
-    Produit *p = prod.at(i);
-    if(p->getTitre() == titre){
-      _panier.push_back(p);
-    }
-  }
+  Produit *produit = new Produit(titre, " ", 1, 10);
+  this->_panier.push_back(produit);
+  delete produit;
 }
 
 
@@ -60,12 +56,21 @@ void Client::changeQuantity(std::string nom, int quantite){
 		if(article->getTitre() == nom){
 			article->setQuantite(quantite);
 		}
+    delete article;
 	}
 }
 
-void Client::deleteProduit(){
-	
+void Client::deleteProduit(std::string titre){
+  for(int i=0; i<_panier.size(); i++){
+    Produit *article = _panier.at(i);
+    if(article->getTitre() == titre){
+      _panier.erase(_panier.begin()+(i+1));
+    }
+    delete article;
+  }
 }
+
+
 
 std::ostream& operator << (std::ostream& output, Client& obj) {
     output << "-" << obj.getNom() << " " << obj.getPrenom() << " | n°" << obj.getID() << " | Panier : \n";
@@ -77,9 +82,4 @@ std::ostream& operator << (std::ostream& output, Client& obj) {
 	};
     output << std::endl;
     return output;
-}
-
-void Client::setIdentifiant(int id)
-{
-  _id = id;
 }

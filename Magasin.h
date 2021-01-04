@@ -30,9 +30,6 @@ public:
 	void addtoPanier(std::string titre, std::string nom, std::string prenom);
 	void addtoPanier(std::string titre, int id);
 
-	void setID(int id);
-	std::vector<Produit*> getProd();
-
 private:
 
 	std::vector<Produit*> _produit;

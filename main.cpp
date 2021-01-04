@@ -48,21 +48,23 @@ int main() {
 	std::cout << *c2 << "\n" << std::endl;
 
 	//Test addtoCart()
-//	c1->addtoCart("Xbox");
-//	std::cout << *c1 << std::endl;
-/*
-	//Test clearCart()
+	c1->addtoCart("Xbox");
+	c1->addtoCart("PS5");
+	std::cout << *c1 << std::endl;
+
+/*	//Test clearCart()
 	c1->clearCart();
 	std::cout << *c1 << std::endl;
 
 	//Test changeQuantity()
-	c1->addtoCart(p2);
-	std::cout << *c1 << std::endl;
-	c1->changeQuantity("Xbox", 3);
+	c1->addtoCart("PS5");
 	std::cout << *c1 << std::endl;
 
+	c1->changeQuantity("PS5", 3);
+	std::cout << *c1 << std::endl;
+*/
 
-		// Question 5
+/*		// Question 5
 	EasyStore.addClient("Lefaivre", "Remi");
 	EasyStore.displayClients();
 
