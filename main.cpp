@@ -11,7 +11,7 @@ int main() {
 
 		// Question 2
 	//Création des produits et leurs pointeurs
-/*	Produit prod1;
+	Produit prod1;
 	Produit prod2("Xbox", "Console de Jeu", 1, 299.99);
 	Produit *p1 = &prod1;
 	Produit *p2 = &prod2;
@@ -19,7 +19,7 @@ int main() {
 
 	//Vérification de l'allocution
 	std::cout << *p1 << "\n" << std::endl;
-*/
+
 
 		// Question 3
 	//Test de la fonction addProduit()
@@ -47,9 +47,10 @@ int main() {
 	std::cout << *c1 << std::endl;
 	std::cout << *c2 << "\n" << std::endl;
 
+
 	//Test addtoCart()
-	c1->addtoCart("Xbox");
-	c1->addtoCart("PS5");
+	c1->addtoCart(p1);
+	c1->addtoCart(p2);
 	std::cout << *c1 << std::endl;
 
 /*	//Test clearCart()

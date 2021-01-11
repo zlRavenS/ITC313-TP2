@@ -39,10 +39,8 @@ std::vector<Produit*> Client::getPanier()
 
 
 
-void Client::addtoCart(std::string titre){
-  Produit *produit = new Produit(titre, " ", 1, 10);
+void Client::addtoCart(Produit* produit){
   this->_panier.push_back(produit);
-  delete produit;
 }
 
 
@@ -51,7 +49,7 @@ void Client::clearCart(){
 }
 
 void Client::changeQuantity(std::string nom, int quantite){
-	for(int i=0; i<_panier.size(); i++){
+	for(int i=0; i< (int) _panier.size(); i++){
 		Produit *article = _panier.at(i);
 		if(article->getTitre() == nom){
 			article->setQuantite(quantite);
@@ -61,7 +59,7 @@ void Client::changeQuantity(std::string nom, int quantite){
 }
 
 void Client::deleteProduit(std::string titre){
-  for(int i=0; i<_panier.size(); i++){
+  for(int i=0; i< (int) _panier.size(); i++){
     Produit *article = _panier.at(i);
     if(article->getTitre() == titre){
       _panier.erase(_panier.begin()+(i+1));
@@ -76,7 +74,7 @@ std::ostream& operator << (std::ostream& output, Client& obj) {
     output << "-" << obj.getNom() << " " << obj.getPrenom() << " | n°" << obj.getID() << " | Panier : \n";
     std::vector<Produit*> panier = obj.getPanier();
     if(panier.size() != 0){
-    	for (int i=0; i<panier.size(); i++){
+    	for (int i=0; i< (int) panier.size(); i++){
     		output << "   -->" << *panier.at(i) << std::endl;
     	};
 	};

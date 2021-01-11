@@ -43,7 +43,7 @@ private:
 
 };
 
-// As Usual, surcharge de l'operateur <<
+//Surcharge de l'operateur <<
 
 std::ostream& operator << (std::ostream& output, Produit& obj);
 
