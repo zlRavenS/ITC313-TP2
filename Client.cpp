@@ -12,9 +12,6 @@ Client::Client(std::string nom, std::string prenom, int id) : _nom(nom), _prenom
 
 }
 
-Client::Client() : _nom("Dos Santos"), _prenom("Miguel"), _id(2) {
-
-}
 
 std::string Client::getPrenom()
 {

@@ -184,3 +184,21 @@ void Magasin::changeQttPanier(std::string titre, int quantite, int id) {
 	Client *client = _client.at(id-1);
 	client->changeQuantity(titre, quantite);
 }
+
+void Magasin::creerCommande(int id){
+	Client* client = _client.at(id-1);
+	std::vector<Produit*> panier = _client.at(id-1)->getPanier();
+	int numero = _commande.size()+1;
+	Commande *commande = new Commande (client, panier, numero);
+	this->_commande.push_back(commande);
+}
+
+void Magasin::validerCommande(int numero) {
+	for(int i=0; i< (int) _commande.size(); i++){
+    Commande *commande = _commande.at(i);
+    if(commande->getNumero() == numero){
+      commande->setStatus("Validée");
+    }
+  }
+
+}

@@ -18,7 +18,6 @@ class Client{
 public:
 
 	Client(std::string nom, std::string prenom, int id);
-	Client();
 
 	int getID();
 	std::string getPrenom();

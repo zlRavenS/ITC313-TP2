@@ -11,6 +11,7 @@
 #include <vector>
 #include "Produit.h"
 #include "Client.h"
+#include "Commande.h"
 
 class Magasin{
 
@@ -34,11 +35,14 @@ public:
 	void changeQttPanier(std::string titre, int quantite, std::string nom, std::string prenom);
 	void changeQttPanier(std::string titre, int quantite, int id);
 
+	void creerCommande(int id);
+	void validerCommande(int numero);
+
 private:
 
 	std::vector<Produit*> _produit;
 	std::vector<Client*> _client;
-	//std::vector<Commande*> _commande;
+	std::vector<Commande*> _commande;
 
 };
 #endif

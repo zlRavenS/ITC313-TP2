@@ -11,11 +11,11 @@ int main() {
 
 		// Question 2
 	//Création des produits et leurs pointeurs
-/*	Produit prod1;
+	Produit prod1;
 	Produit prod2("Xbox", "Console de Jeu", 1, 299.99);
 	Produit *p1 = &prod1;
 	Produit *p2 = &prod2;
-*/
+
 
 	//Vérification de l'allocution
 //	std::cout << *p1 << "\n" << std::endl;
@@ -37,14 +37,12 @@ int main() {
 
 		// Question 4
 	//Test Création Client
-/*	Client client1("Ledoux", "Paul", 1);
-	Client client2;
+	Client client1("Ledoux", "Paul", 1);
 	Client *c1 = &client1;
-	Client *c2 = &client2;
 
 
 	//Vérification de l'allocution
-	std::cout << *c1 << std::endl;
+/*	std::cout << *c1 << std::endl;
 	std::cout << *c2 << "\n" << std::endl;
 	std::cout << "-----------------------------------" << std::endl;
 */
@@ -74,7 +72,7 @@ int main() {
 		// Question 5
 	EasyStore.addClient("Lefaivre", "Remi");
 	EasyStore.addClient("Ping", "Pong");
-	EasyStore.displayClients();
+//	EasyStore.displayClients();
 
 /*	EasyStore.addClient("Ping", "Pong");
 	EasyStore.displayClientFiltre("Ping", "Pong");
@@ -82,9 +80,15 @@ int main() {
 	EasyStore.displayClients();
 */
 	EasyStore.addtoPanier("Zelda", 1);
-	EasyStore.displayClients();
-	EasyStore.changeQttPanier("Zelda", 3, 1);
-	EasyStore.displayClients();
+
+	c1->addtoCart(p1);
+/*	std::vector<Produit*> panier1 = c1->getPanier();
+	Commande comm1(c1, panier1, 1);
+	Commande *com1 = &comm1;
+	std::cout << *com1 << std::endl;
+	*/
+	EasyStore.creerCommande(1);
+	
 
 return 0;
 }
