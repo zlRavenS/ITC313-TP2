@@ -29,6 +29,10 @@ public:
 	void displayClientFiltre(int id);
 	void addtoPanier(std::string titre, std::string nom, std::string prenom);
 	void addtoPanier(std::string titre, int id);
+	void deleteProdPanier(std::string titre, std::string nom, std::string prenom);
+	void deleteProdPanier(std::string titre, int id);
+	void changeQttPanier(std::string titre, int quantite, std::string nom, std::string prenom);
+	void changeQttPanier(std::string titre, int quantite, int id);
 
 private:
 

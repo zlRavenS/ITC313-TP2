@@ -72,14 +72,13 @@ void Magasin::setQtt(std::string titre, int n){
 
 
 void Magasin::addClient(std::string nom, std::string prenom) {
-	int id = _client.size() + 1;
+	int id = _client.size()+1;
 	Client *client = new Client(nom, prenom, id);
 	this->_client.push_back(client);
-	delete client;
 }
 
  void Magasin::displayClients() {
- 	std::cout << "    Nom	 Prénom    |	ID   "<< std::endl;
+ 	std::cout << "    Nom	 Prénom    |	n° Client  	|  Panier   "<< std::endl;
  	std::cout << "-----------------------------------------------------"<< std::endl;
  		for (int i=0; i< (int) _client.size(); i++){
  			std::cout << *_client.at(i);
@@ -107,7 +106,7 @@ void Magasin::displayClientFiltre(std::string nom, std::string prenom) {
  			}
  		}
  		if( p != 0) { 		
-			std::cout << "    Nom	 Prénom    |	ID   "<< std::endl;
+			std::cout << "    Nom	 Prénom    |	n° Client  	|  Panier   "<< std::endl;
  			std::cout << "-----------------------------------------------------"<< std::endl;
  			for (int i=0; i< (int) _client.size(); i++){
  				Client *c = _client.at(i); 
@@ -128,7 +127,7 @@ void Magasin::displayClientFiltre(int id) {
 	else{
 		Client *c = _client.at(id-1); 
  			if(c->getID() == id){
- 				std::cout << "    Nom	 Prénom    |	ID   "<< std::endl;
+ 				std::cout << "    Nom	 Prénom    |	n° Client  	|  Panier   "<< std::endl;
  				std::cout << "-----------------------------------------------------"<< std::endl;
  				std::cout << *c << std::endl;
  			}
@@ -136,43 +135,52 @@ void Magasin::displayClientFiltre(int id) {
 	std::cout << "\n" << std::endl;
 }
 
-/*
 void Magasin::addtoPanier(std::string titre, std::string nom, std::string prenom) {
-	int n=0, p=0;
-	for (int i=0; i<_client.size();i++){
-		Client *c = _client.at(i); 
- 		if(c->getNom() == nom){
- 			n++;
- 		}
- 	}
- 	if( n == 0) {
- 		std::cout << "Cette personne n'est pas un client \n" << std::endl;
- 	}
- 	else{
- 		for (int i=0; i<_client.size();i++){
-			Client *c = _client.at(i); 
- 			if(c->getPrenom() == prenom){
- 				p++;
- 			}
- 		}
- 		if( p != 0) { 		
-			std::cout << "    Nom	 Prénom    |	ID   "<< std::endl;
- 			std::cout << "-----------------------------------------------------"<< std::endl;
- 			for (int i=0; i<_client.size(); i++){
- 				Client *c = _client.at(i); 
- 				if(c->getPrenom() == prenom){
- 					for(int j=0; j<_produit.size(); j++){
- 						Produit *p = _produit.at(j);
- 						if(p->getTitre() == titre){
- 							c->addtoCart(titre);
- 						}
- 					}
- 				}
- 				std::cout << *c << std::endl;
- 			}
- 		}
- 	}
- 	std::cout << "\n" << std::endl;
+	int id = 0;
+	for(int i=0; i< (int) _client.size(); i++){
+		if((_client.at(i)->getNom() == nom) && (_client.at(i)->getPrenom() == prenom)) {
+			id = _client.at(i)->getID();
+		}
+	}
+	Client *client = _client.at(id-1);
+	Produit *produit = new Produit(titre, "", 1, 0);
+	client->addtoCart(produit);
 }
-*/
 
+void Magasin::addtoPanier(std::string titre, int id) {
+	Client *client = _client.at(id-1);
+	Produit *produit = new Produit(titre, "", 1, 0);
+	client->addtoCart(produit);
+}
+
+void Magasin::deleteProdPanier(std::string titre, std::string nom, std::string prenom) {
+	int id = 0;
+	for(int i=0; i< (int) _client.size(); i++){
+		if((_client.at(i)->getNom() == nom) && (_client.at(i)->getPrenom() == prenom)) {
+			id = _client.at(i)->getID();
+		}
+	}
+	Client *client = _client.at(id-1);
+	client->deleteProduit(titre);
+}
+
+void Magasin::deleteProdPanier(std::string titre, int id) {
+	Client *client = _client.at(id-1);
+	client->deleteProduit(titre);
+}
+
+void Magasin::changeQttPanier(std::string titre, int quantite, std::string nom, std::string prenom) {
+	int id = 0;
+	for(int i=0; i< (int) _client.size(); i++){
+		if((_client.at(i)->getNom() == nom) && (_client.at(i)->getPrenom() == prenom)) {
+			id = _client.at(i)->getID();
+		}
+	}
+	Client *client = _client.at(id-1);
+	client->changeQuantity(titre, quantite);
+}
+
+void Magasin::changeQttPanier(std::string titre, int quantite, int id) {
+	Client *client = _client.at(id-1);
+	client->changeQuantity(titre, quantite);
+}

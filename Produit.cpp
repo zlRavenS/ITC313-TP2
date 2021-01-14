@@ -46,7 +46,9 @@ void Produit::setQuantite(int quantite)
 
 
 std::ostream& operator << (std::ostream& output, Produit& obj) {
-    output << obj.getTitre() << "             " << obj.getDescription() << "                   (" << obj.getQuantite() << ")            " << obj.getPrix() << " €";
-
+    output << obj.getTitre() << "             " << obj.getDescription() << "                   (" << obj.getQuantite() << ")            ";
+    if(obj.getPrix() != 0) {
+       output << obj.getPrix() << " €";
+    };
     return output;
 }

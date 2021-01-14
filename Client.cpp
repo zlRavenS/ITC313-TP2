@@ -53,7 +53,6 @@ void Client::changeQuantity(std::string titre, int quantite){
 		Produit *article = _panier.at(i);
 		if(article->getTitre() == titre){
 			article->setQuantite(quantite);
-      std::cout << *article << std::endl;
 		}
 	}
 }
