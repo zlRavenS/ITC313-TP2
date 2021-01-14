@@ -49,8 +49,12 @@ int main() {
 
 
 	//Test addtoCart()
+	std::cout << "-----------------------------------" << std::endl;
 	c1->addtoCart(p1);
 	c1->addtoCart(p2);
+	std::cout << *c1 << std::endl;
+	c1->deleteProduit("PS5");
+	std::cout << "-----------------------------------" << std::endl;
 	std::cout << *c1 << std::endl;
 
 /*	//Test clearCart()

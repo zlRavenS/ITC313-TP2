@@ -27,7 +27,7 @@ public:
 
 	void addtoCart(Produit* produit);
 	void clearCart();
-	void changeQuantity(std::string nom, int quantite);
+	void changeQuantity(std::string titre, int quantite);
 	void deleteProduit(std::string titre);
 
 private:
