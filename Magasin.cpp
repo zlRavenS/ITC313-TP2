@@ -202,3 +202,46 @@ void Magasin::validerCommande(int numero) {
   }
 
 }
+
+void Magasin::displayCommandes() {
+ 		for (int i=0; i< (int) _commande.size(); i++){
+ 			std::cout << *_commande.at(i);
+ 			Client* client = _commande.at(i)->getClient();
+ 			std::vector<Produit*> panier = client->getPanier();
+ 			for(int j=0; j< (int) panier.size(); j++) {
+ 				std::cout << "PANIER :"<< std::endl << "	-->" << *panier.at(j);
+ 			};
+ 		std::cout << "\n \n" << std::endl;
+ 		};
+}
+
+void Magasin::displayCommandesFiltre(std::string nom, std::string prenom) {
+	for (int i=0; i< (int) _commande.size(); i++){
+ 			Client* client = _commande.at(i)->getClient();
+ 			std::string NOM = client->getNom();
+ 			std::string PRENOM = client->getPrenom();
+ 			if( (NOM == nom) && (PRENOM == prenom) ) {
+ 				std::cout << *_commande.at(i);
+ 				std::vector<Produit*> panier = client->getPanier();
+ 				for(int j=0; j< (int) panier.size(); j++) {
+ 				std::cout << "PANIER :"<< std::endl << "	-->" << *panier.at(j);
+ 				};
+ 			};
+ 		std::cout << "\n \n" << std::endl;
+ 		};
+}
+
+void Magasin::displayCommandesFiltre(int id) {
+	for (int i=0; i< (int) _commande.size(); i++){
+ 			Client* client = _commande.at(i)->getClient();
+ 			int ID = client->getID();
+ 			if( ID == id) {
+ 				std::cout << *_commande.at(i);
+ 				std::vector<Produit*> panier = client->getPanier();
+ 				for(int j=0; j< (int) panier.size(); j++) {
+ 				std::cout << "PANIER :"<< std::endl << "	-->" << *panier.at(j);
+ 				};
+ 			};
+ 		std::cout << "\n \n" << std::endl;
+ 		};
+}

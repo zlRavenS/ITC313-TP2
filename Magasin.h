@@ -37,6 +37,9 @@ public:
 
 	void creerCommande(int id);
 	void validerCommande(int numero);
+	void displayCommandes();
+	void displayCommandesFiltre(std::string nom, std::string prenom);
+	void displayCommandesFiltre(int id);
 
 private:
 

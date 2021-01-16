@@ -12,9 +12,9 @@ int main() {
 		// Question 2
 	//Création des produits et leurs pointeurs
 	Produit prod1;
-	Produit prod2("Xbox", "Console de Jeu", 1, 299.99);
+//	Produit prod2("Xbox", "Console de Jeu", 1, 299.99);
 	Produit *p1 = &prod1;
-	Produit *p2 = &prod2;
+//	Produit *p2 = &prod2;
 
 
 	//Vérification de l'allocution
@@ -88,6 +88,7 @@ int main() {
 	std::cout << *com1 << std::endl;
 	*/
 	EasyStore.creerCommande(1);
+	EasyStore.displayCommandesFiltre("Lefaivre", "Remi");
 	
 
 return 0;

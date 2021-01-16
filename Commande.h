@@ -10,6 +10,7 @@
 
 #include <vector>
 #include "Client.h"
+#include "Produit.h"
 
 class Commande{
 
@@ -34,5 +35,4 @@ private:
 };
 
 std::ostream& operator << (std::ostream& output, Commande& obj);
-
 #endif
