@@ -22,8 +22,8 @@ class Produit {
 public:
 
 
-    Produit(std::string titre, std::string description, int quantite, float prix);
-    Produit();
+    Produit(std::string titre, std::string description, int quantite, float prix); // construteur avec tout les membres de private
+    Produit(); // constructeur par défaut
 
     //Getters et Setters
        
