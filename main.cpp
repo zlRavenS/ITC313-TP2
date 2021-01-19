@@ -46,6 +46,12 @@ int main() {
 			switch(menu3) {
 
 				case 1:
+					system("clear");
+					std::string titre, description;
+					int quantite;
+					float prix;
+					std::cout << "Nom du produit : ";
+					std::cin >> titre;
 					break;
 
 				case 2:
