@@ -138,7 +138,7 @@ int main() {
 					break;
 			};
 
-
+		case 0:
 			break;
 
 		};
