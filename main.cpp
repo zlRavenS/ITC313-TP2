@@ -4,7 +4,7 @@
 
 int main() {
 	Magasin EasyStore;
-	int menup, menu;
+	int menup, menu2, menu3;
 
 	do{
 	system("clear");
@@ -24,10 +24,131 @@ int main() {
 		std::cout << "\n 1°) Produits" << std::endl;
 		std::cout << " 2°) Clients" << std::endl;
 		std::cout << " 3°) Commandes" << std::endl;
-		std::cout << "\n 0°) Quitter" << std::endl;
+		std::cout << "\n 0°) Retour" << std::endl;
 		std::cout << "\n   --> Choisissez votre menu en tapant le numéro correspondant" << std::endl;
-		std::cin >> menu;
+		std::cin >> menu2;
+
+
+
+		do {
+		switch(menu2) {
+
+	    case 1:
+	    	system("clear");
+	        std::cout << "-------------------- PRODUITS DU MAGASIN --------------------" << std::endl;
+			std::cout << "\n 1°) Ajouter un produit au magasin" << std::endl;
+			std::cout << " 2°) Afficher tous les produits" << std::endl;
+			std::cout << " 3°) Afficher un produit en particulier" << std::endl;
+			std::cout << " 4°) Changer la quantité d'un produit" << std::endl;
+			std::cout << "\n 0°) Retour" << std::endl;
+			std::cout << "\n   --> Choisissez votre menu en tapant le numéro correspondant" << std::endl;
+			std::cin >> menu3;
+
+			switch(menu3) {
+
+				case 1:
+					break;
+
+				case 2:
+					break;
+
+				case 3:
+					break;
+
+				case 4:
+					break;
+
+				case 5:
+					break;
+
+				case 6:
+					break;
+
+				case 0:
+					break;
+			};
+
+
+
+
+			break;
+
+		case 2:
+	    	system("clear");
+	        std::cout << "-------------------- CLIENTS DU MAGASIN --------------------" << std::endl;
+			std::cout << "\n 1°) Enregistrer un client" << std::endl;
+			std::cout << " 2°) Afficher tous les clients" << std::endl;
+			std::cout << " 3°) Afficher un client en particulier" << std::endl;
+			std::cout << " 4°) Ajouter un article au panier d'un client" << std::endl;
+			std::cout << " 5°) Retirer un article du panier d'un client" << std::endl;
+			std::cout << " 6°) Changer la quantité d'un article du panier d'un client" << std::endl;
+			std::cout << "\n 0°) Retour" << std::endl;
+			std::cout << "\n   --> Choisissez votre menu en tapant le numéro correspondant" << std::endl;
+			std::cin >> menu3;
+
+			switch(menu3) {
+
+				case 1:
+					break;
+
+				case 2:
+					break;
+
+				case 3:
+					break;
+
+				case 4:
+					break;
+
+				case 0:
+					break;
+			};
+
+
+
+
+			break;
+
+		case 3:
+	    	system("clear");
+	        std::cout << "-------------------- COMMANDES DU MAGASIN --------------------" << std::endl;
+			std::cout << "\n 1°) Créer une commande" << std::endl;
+			std::cout << " 2°) Valider une commande" << std::endl;
+			std::cout << " 3°) Afficher toutes les commandes" << std::endl;
+			std::cout << " 4°) Afficher une commande en particulier" << std::endl;
+			std::cout << "\n 0°) Retour" << std::endl;
+			std::cout << "\n   --> Choisissez votre menu en tapant le numéro correspondant" << std::endl;
+			std::cin >> menu3;
+
+			switch(menu3) {
+
+				case 1:
+					break;
+
+				case 2:
+					break;
+
+				case 3:
+					break;
+
+				case 4:
+					break;
+
+				case 0:
+					break;
+			};
+
+
+			break;
+
+		};
+		}while(menu2 != 0);
+
 		break;
+
+
+
+
 
     case 2:
     	system("clear");
@@ -36,20 +157,26 @@ int main() {
 		std::cout << " 2°) Vider le panier d'un client" << std::endl;
 		std::cout << " 3°) Changer la quantité d'un article du panier d'un client" << std::endl;
 		std::cout << " 4°) Supprimer un article du panier d'un client" << std::endl;
-		std::cout << "\n 0°) Quitter" << std::endl;
+		std::cout << "\n 0°) Retour" << std::endl;
 		std::cout << "\n   --> Choisissez votre menu en tapant le numéro correspondant" << std::endl;
-		std::cin >> menu;
+		std::cin >> menu2;
+
+
+
+
 		break;
 
 	case 3:
 		system("clear");
         std::cout << "-------------------- GESTION DES COMMANDES --------------------" << std::endl;
 		std::cout << "\n 1°) Changer l'etat d'une commande" << std::endl;
-		std::cout << " 2°) Clients" << std::endl;
-		std::cout << " 3°) Commandes" << std::endl;
 		std::cout << "\n 0°) Quitter" << std::endl;
 		std::cout << "\n   --> Choisissez votre menu en tapant le numéro correspondant" << std::endl;
-		std::cin >> menu;
+		std::cin >> menu2;
+
+
+
+
 		break;
 
 	case 0:
