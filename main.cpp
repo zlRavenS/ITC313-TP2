@@ -1,14 +1,64 @@
 #include <iostream>
+#include <cstdlib>
 #include "Magasin.h"
 
 int main() {
-	// --- PARTIE I ---
-
-		// Question 1
-	//Création du Magasin vide
 	Magasin EasyStore;
+	int menup, menu;
 
+	do{
+	system("clear");
+	std::cout << "-------------------- MENU DU MAGASIN --------------------" << std::endl;
+	std::cout << "\n 1°) Gestion du Magasin" << std::endl;
+	std::cout << " 2°) Gestion des Utilisateurs" << std::endl;
+	std::cout << " 3°) Gestion des Commandes" << std::endl;
+	std::cout << "\n 0°) Quitter" << std::endl;
+	std::cout << "\n   --> Choisissez votre menu en tapant le numéro correspondant" << std::endl;
+	std::cin >> menup;
 
+	switch(menup) {
+
+    case 1:
+    	system("clear");
+        std::cout << "-------------------- GESTION DU MAGASIN --------------------" << std::endl;
+		std::cout << "\n 1°) Produits" << std::endl;
+		std::cout << " 2°) Clients" << std::endl;
+		std::cout << " 3°) Commandes" << std::endl;
+		std::cout << "\n 0°) Quitter" << std::endl;
+		std::cout << "\n   --> Choisissez votre menu en tapant le numéro correspondant" << std::endl;
+		std::cin >> menu;
+		break;
+
+    case 2:
+    	system("clear");
+        std::cout << "-------------------- GESTION DES UTILISATEURS --------------------" << std::endl;
+		std::cout << "\n 1°) Ajouter un article au panier d'un client" << std::endl;
+		std::cout << " 2°) Vider le panier d'un client" << std::endl;
+		std::cout << " 3°) Changer la quantité d'un article du panier d'un client" << std::endl;
+		std::cout << " 4°) Supprimer un article du panier d'un client" << std::endl;
+		std::cout << "\n 0°) Quitter" << std::endl;
+		std::cout << "\n   --> Choisissez votre menu en tapant le numéro correspondant" << std::endl;
+		std::cin >> menu;
+		break;
+
+	case 3:
+		system("clear");
+        std::cout << "-------------------- GESTION DES COMMANDES --------------------" << std::endl;
+		std::cout << "\n 1°) Changer l'etat d'une commande" << std::endl;
+		std::cout << " 2°) Clients" << std::endl;
+		std::cout << " 3°) Commandes" << std::endl;
+		std::cout << "\n 0°) Quitter" << std::endl;
+		std::cout << "\n   --> Choisissez votre menu en tapant le numéro correspondant" << std::endl;
+		std::cin >> menu;
+		break;
+
+	case 0:
+		system("clear");
+		break;
+	}
+} while(menup != 0);
+
+/*
 		// Question 2
 	//Création des produits et leurs pointeurs
 	Produit prod1;
@@ -34,8 +84,8 @@ int main() {
 	//EasyStore.setQtt("Xbox", 5);
 	//EasyStore.displayProd();
 
-
-		// Question 4
+*/
+/*		// Question 4
 	//Test Création Client
 	Client client1("Ledoux", "Paul", 1);
 	Client *c1 = &client1;
@@ -67,9 +117,9 @@ int main() {
 
 	c1->changeQuantity("PS5", 3);
 	std::cout << *c1 << std::endl;
-*/
 
-		// Question 5
+
+/*		// Question 5
 	EasyStore.addClient("Lefaivre", "Remi");
 	EasyStore.addClient("Ping", "Pong");
 //	EasyStore.displayClients();
@@ -79,6 +129,7 @@ int main() {
 	EasyStore.displayClientFiltre(1);
 	EasyStore.displayClients();
 */
+/*
 	EasyStore.addtoPanier("Zelda", 1);
 
 	c1->addtoCart(p1);
@@ -86,10 +137,11 @@ int main() {
 	Commande comm1(c1, panier1, 1);
 	Commande *com1 = &comm1;
 	std::cout << *com1 << std::endl;
-	*/
+*/
+/*
 	EasyStore.creerCommande(1);
 	EasyStore.displayCommandesFiltre("Lefaivre", "Remi");
-	
+*/
 
 return 0;
 }
