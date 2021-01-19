@@ -17,7 +17,7 @@ int main() {
 	std::cin >> menup;
 
 	switch(menup) {
-
+	do {
     case 1:
     	system("clear");
         std::cout << "-------------------- GESTION DU MAGASIN --------------------" << std::endl;
@@ -30,7 +30,6 @@ int main() {
 
 
 
-		do {
 		switch(menu2) {
 
 	    case 1:
