@@ -34,6 +34,7 @@ public:
 private:
 
 	int _id;	// variable de type int pour l'ID
+	std::string _nom; 	// variable de type string pour le nom du client
 	std::string _prenom; 	// variable de type string pour le prénom du client
 	std::vector<Produit*> _panier;	// variable de type vector contenant un pointeur "Produit*" pour le panier du client
 

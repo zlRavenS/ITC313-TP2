@@ -18,7 +18,7 @@ int main() {
 
 	switch(menup) {
 	do {
-    case 1:
+    case 1: 
     	system("clear");
         std::cout << "-------------------- GESTION DU MAGASIN --------------------" << std::endl;
 		std::cout << "\n 1°) Produits" << std::endl;
@@ -45,37 +45,66 @@ int main() {
 
 			switch(menu3) {
 
-				case 1:
-					system("clear");
-					std::string titre, description;
-					int quantite;
-					float prix;
-					std::cout << "Nom du produit : ";
-					std::cin >> titre;
-					break;
+			case 1:
+			{
+				system("clear");
+				std::string titre, description;
+				int quantite;
+				float prix;
+				std::cout << "Nom du produit : ";
+				std::getline(std::cin, titre);
+				std::cout << "\nDescription du produit : ";
+				std::getline(std::cin, description);
+				std::cout << "\nQuantite : ";
+				std::cin >> quantite;
+				std::cout << "\nPrix : ";
+				std::cin >> prix;
+				EasyStore.addProduit(titre, description, quantite, prix);
+				std::cout << "\nProduit ajouté !" << std::endl;
+				EasyStore.displayProd();
+				system("pause");
+			}
+				break;
 
-				case 2:
-					break;
+			case 2:
+			{
+				system("clear");
+				EasyStore.displayProd();
+				system("pause");
+			}
+				break;
 
-				case 3:
-					break;
+			case 3:
+			{
+				system("clear");
+				std::string nom;
+				std::cout << "Nom du produit : ";
+				std::getline(std::cin, nom);
+				EasyStore.displayProdFiltre(nom);
+				std::cout << "Appuyez sur une touche pour continuer" << std::endl;
+				system("pause");
+			}
+				break;
 
-				case 4:
-					break;
+			case 4:
+			{
+				system("clear");
+				std::string n;
+				int qtt;
+				std::cout << "Nom du produit : ";
+				std::getline(std::cin, n);
+				std::cout << "Quantité : ";
+				std::cin >> qtt;
+				EasyStore.setQtt(n, qtt);
+				std::cout << "Quantité de " << n << " modifiée à " << qtt << " !" << std::endl;
+				std::cout << "Appuyez sur une touche pour continuer" << std::endl;
+				system("pause");
+			}	
+				break;
 
-				case 5:
-					break;
-
-				case 6:
-					break;
-
-				case 0:
-					break;
+			case 0:
+				break;
 			};
-
-
-
-
 			break;
 
 		case 2:

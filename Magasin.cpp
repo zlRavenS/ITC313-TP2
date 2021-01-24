@@ -16,7 +16,6 @@ Magasin::Magasin(){
 void Magasin::addProduit(std::string titre, std::string description, int quantite, float prix) {
 	Produit *produit = new Produit(titre, description, quantite, prix);
 	this->_produit.push_back(produit);
-	delete produit;
 }
 
 
@@ -26,7 +25,7 @@ void Magasin::displayProd() {
  		for (int i=0; i< (int) _produit.size(); i++){
  			std::cout << *_produit.at(i);
  	};
- 	std::cout << "\n \n" << std::endl;
+ 	std::cout << "\n" << std::endl;
 }
 
 
