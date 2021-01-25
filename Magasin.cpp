@@ -21,9 +21,9 @@ void Magasin::addProduit(std::string titre, std::string description, int quantit
 
 void Magasin::displayProd() {
  	std::cout << "    NOM 	|	 DESCRIPTION 	|	QUANTITE	|	PRIX   "<< std::endl;
- 	std::cout << "----------------------------------------------------------------------------"<< std::endl;
+ 	std::cout << "----------------------------------------------------------------------------------"<< std::endl;
  		for (int i=0; i< (int) _produit.size(); i++){
- 			std::cout << *_produit.at(i);
+ 			std::cout << *_produit.at(i) << std::endl;
  	};
  	std::cout << "\n" << std::endl;
 }
@@ -42,7 +42,7 @@ void Magasin::displayProdFiltre(std::string titre) {
  	}
  	else{
 		std::cout << "    NOM 	|	 DESCRIPTION 	|	QUANTITE	|	PRIX   "<< std::endl;
- 		std::cout << "----------------------------------------------------------------------------"<< std::endl;
+ 		std::cout << "----------------------------------------------------------------------------------"<< std::endl;
  		for (int i=0; i< (int) _produit.size(); i++){
  			Produit *p = _produit.at(i); 
  			if(p->getTitre() == titre){
@@ -102,8 +102,8 @@ void Magasin::displayClientFiltre(std::string nom, std::string prenom) {
 			Client *c = _client.at(i); 
  			if(c->getPrenom() == prenom){
  				p++;
- 			}
- 		}
+ 			};
+ 		};
  		if( p != 0) { 		
 			std::cout << "    Nom	 Prénom    |	n° Client  	|  Panier   "<< std::endl;
  			std::cout << "-----------------------------------------------------"<< std::endl;
@@ -111,10 +111,13 @@ void Magasin::displayClientFiltre(std::string nom, std::string prenom) {
  				Client *c = _client.at(i); 
  				if(c->getPrenom() == prenom){
  					std::cout << *c << std::endl;
- 				}
- 			}
- 		}
- 	}
+ 				};
+ 			};
+ 		};
+ 		if( p == 0 ) {
+ 			std::cout << "Cette personne n'est pas un client" << std::endl;
+ 		};
+ 	};
  	std::cout << "\n" << std::endl;
 }
 

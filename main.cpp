@@ -1,10 +1,12 @@
 #include <iostream>
 #include <cstdlib>
+#include <thread>
 #include "Magasin.h"
 
 int main() {
 	Magasin EasyStore;
 	int menup, menu2, menu3;
+	std::string q;
 
 	do{
 	system("clear");
@@ -15,10 +17,10 @@ int main() {
 	std::cout << "\n 0°) Quitter" << std::endl;
 	std::cout << "\n   --> Choisissez votre menu en tapant le numéro correspondant" << std::endl;
 	std::cin >> menup;
-
 	switch(menup) {
-	do {
-    case 1: 
+    case 1:
+    {	
+    	do{
     	system("clear");
         std::cout << "-------------------- GESTION DU MAGASIN --------------------" << std::endl;
 		std::cout << "\n 1°) Produits" << std::endl;
@@ -31,8 +33,8 @@ int main() {
 
 
 		switch(menu2) {
-
 	    case 1:
+	    {
 	    	system("clear");
 	        std::cout << "-------------------- PRODUITS DU MAGASIN --------------------" << std::endl;
 			std::cout << "\n 1°) Ajouter un produit au magasin" << std::endl;
@@ -51,6 +53,7 @@ int main() {
 				std::string titre, description;
 				int quantite;
 				float prix;
+				std::getline(std::cin, titre);
 				std::cout << "Nom du produit : ";
 				std::getline(std::cin, titre);
 				std::cout << "\nDescription du produit : ";
@@ -61,28 +64,35 @@ int main() {
 				std::cin >> prix;
 				EasyStore.addProduit(titre, description, quantite, prix);
 				std::cout << "\nProduit ajouté !" << std::endl;
-				EasyStore.displayProd();
-				system("pause");
+				std::this_thread::sleep_for(std::chrono::milliseconds(2000));
 			}
 				break;
 
 			case 2:
 			{
+				q = "0";
 				system("clear");
 				EasyStore.displayProd();
-				system("pause");
+				do{
+					std::cout << "Entrez Q (en majuscule svp) pour quitter" << std::endl;
+					std::cin >> q;
+				}while( q != "Q" );
 			}
 				break;
 
 			case 3:
 			{
 				system("clear");
+				q = "0";
 				std::string nom;
+				std::getline(std::cin, nom);
 				std::cout << "Nom du produit : ";
 				std::getline(std::cin, nom);
 				EasyStore.displayProdFiltre(nom);
-				std::cout << "Appuyez sur une touche pour continuer" << std::endl;
-				system("pause");
+				do{
+					std::cout << "Entrez Q (en majuscule svp) pour quitter" << std::endl;
+					std::cin >> q;
+				}while( q != "Q" && q != "q" );
 			}
 				break;
 
@@ -91,24 +101,26 @@ int main() {
 				system("clear");
 				std::string n;
 				int qtt;
+				std::getline(std::cin, n);
 				std::cout << "Nom du produit : ";
 				std::getline(std::cin, n);
 				std::cout << "Quantité : ";
 				std::cin >> qtt;
 				EasyStore.setQtt(n, qtt);
 				std::cout << "Quantité de " << n << " modifiée à " << qtt << " !" << std::endl;
-				std::cout << "Appuyez sur une touche pour continuer" << std::endl;
-				system("pause");
+				std::this_thread::sleep_for(std::chrono::milliseconds(2000));
 			}	
 				break;
 
 			case 0:
 				break;
 			};
+		}
 			break;
 
 		case 2:
-	    	system("clear");
+		{
+			system("clear");
 	        std::cout << "-------------------- CLIENTS DU MAGASIN --------------------" << std::endl;
 			std::cout << "\n 1°) Enregistrer un client" << std::endl;
 			std::cout << " 2°) Afficher tous les clients" << std::endl;
@@ -123,28 +135,214 @@ int main() {
 			switch(menu3) {
 
 				case 1:
+				{
+					system("clear");
+					std::string nom, prenom;
+					std::getline(std::cin, nom);
+					std::cout << "Nom du client : ";
+					std::getline(std::cin, nom);
+					std::cout << "\nPrenom du client : ";
+					std::getline(std::cin, prenom);
+					EasyStore.addClient(nom, prenom);
+					std::cout << "\nClient enregistré !" << std::endl;
+					std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+				}
 					break;
+				
 
 				case 2:
+				{
+					q = "0";
+					system("clear");
+					EasyStore.displayClients();
+					do{
+						std::cout << "Entrez Q (en majuscule svp) pour quitter" << std::endl;
+						std::cin >> q;
+					}while( q != "Q" );
+				}
 					break;
 
 				case 3:
+				{
+					q = "0";
+					int choix;
+					do {
+					system("clear");
+					std::cout << "Voulez chercher un client par son Nom/Prenom ou son ID ?" << std::endl;
+					std::cout << "	1°) Par son Nom/Prenom" << std::endl;
+					std::cout << "	2°) Par son ID" << std::endl;
+					std::cin >> choix;
+					switch(choix) {
+						case 1 :
+						{
+							std::string nom, prenom;
+							std::getline(std::cin, nom);
+							std::cout << "\nNom du client : ";
+							std::getline(std::cin, nom);
+							std::cout << "\nPrenom du client : ";
+							std::getline(std::cin, prenom);
+							EasyStore.displayClientFiltre(nom, prenom);
+							do{
+								std::cout << "Entrez Q (en majuscule svp) pour quitter" << std::endl;
+								std::cin >> q;
+							}while( q != "Q" && q != "q" );
+						}
+							break;
+
+						case 2 :
+						{
+							int id;
+							std::cout << "ID du client : ";
+							std::cin >> id;
+							EasyStore.displayClientFiltre(id);
+							do{
+								std::cout << "Entrez Q (en majuscule svp) pour quitter" << std::endl;
+								std::cin >> q;
+							}while( q != "Q" && q != "q" );
+						}
+							break;
+
+					};
+					}while(choix != 1 && choix != 2) ;
+				}
 					break;
 
 				case 4:
+				{
+					system("clear");
+					std::string titre;
+					int choix;
+					std::getline(std::cin, titre);
+					std::cout << "Nom du produit à ajouter au panier : ";
+					std::getline(std::cin, titre);
+					std::cout << "\nTrouver le client par son Nom/Prenom ou son ID ? " << std::endl;
+					std::cout << "	1°) Nom/Prenom" << std::endl;
+					std::cout << "	2°) ID" << std::endl;
+					std::cin >> choix;
+					switch(choix) {
+						case 1 :
+						{
+							std::string nom, prenom;
+							std::getline(std::cin, nom);
+							std::cout << "Nom du client : ";
+							std::getline(std::cin, nom);
+							std::cout << "Prenom du client : ";
+							std::getline(std::cin, prenom);
+							EasyStore.addtoPanier(titre, nom, prenom);
+							std::cout << "\nArticle ajouté au panier du client !" << std::endl;
+							std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+						}
+							break;
+
+						case 2 :
+						{
+							int id;
+							std::cout << "ID du client : ";
+							std::cin >> id;
+							EasyStore.addtoPanier(titre, id);
+							std::cout << "\nArticle ajouté au panier du client !" << std::endl;
+							std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+						}
+							break;
+					};
+				}
 					break;
 
-				case 0:
+				case 5:
+				{
+					system("clear");
+					std::string titre;
+					int choix;
+					std::getline(std::cin, titre);
+					std::cout << "Nom du produit à retirer du panier: ";
+					std::getline(std::cin, titre);
+					std::cout << "\nTrouver le client par son Nom/Prenom ou son ID ? " << std::endl;
+					std::cout << "	1°) Nom/Prenom" << std::endl;
+					std::cout << "	2°) ID" << std::endl;
+					std::cin >> choix;
+					switch(choix) {
+						case 1 :
+						{
+							std::string nom, prenom;
+							std::getline(std::cin, nom);
+							std::cout << "\nNom du client : ";
+							std::getline(std::cin, nom);
+							std::cout << "\nPrenom du client : ";
+							std::getline(std::cin, prenom);
+							EasyStore.deleteProdPanier(titre, nom, prenom);
+							std::cout << "\nArticle retiré du panier du client !" << std::endl;
+							std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+						}
+							break;
+
+						case 2 :
+						{
+							int id;
+							std::cout << "ID du client : ";
+							std::cin >> id;
+							EasyStore.deleteProdPanier(titre, id);
+							std::cout << "\nArticle retiré du panier du client !" << std::endl;
+							std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+						}
+							break;
+					};
+				}
+					break;
+
+
+				case 6:
+				{
+					system("clear");
+					std::string titre;
+					int choix, quantite;
+					std::getline(std::cin, titre);
+					std::cout << "De quel produit souhaitez vous modifier la quantite au panier : ";
+					std::getline(std::cin, titre);
+					std::cout << "\nCombien en voulez-vous : ";
+					std::cin >> quantite;
+					std::cout << "\nTrouver le client par son Nom/Prenom ou son ID ? " << std::endl;
+					std::cout << "	1°) Nom/Prenom" << std::endl;
+					std::cout << "	2°) ID" << std::endl;
+					std::cin >> choix;
+					switch(choix) {
+						case 1 :
+						{
+							std::string nom, prenom;
+							std::getline(std::cin, nom);
+							std::cout << "\nNom du client : ";
+							std::getline(std::cin, nom);
+							std::cout << "\nPrenom du client : ";
+							std::getline(std::cin, prenom);
+							EasyStore.changeQttPanier(titre, quantite, nom, prenom);
+							std::cout << "\nQuantité de l'article du panier du client modifié !" << std::endl;
+							std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+						}
+							break;
+
+						case 2 :
+						{
+							int id;
+							std::cout << "ID du client : ";
+							std::cin >> id;
+							EasyStore.changeQttPanier(titre, quantite, id);
+							std::cout << "\nQuantité de l'article du panier du client modifié !" << std::endl;
+							std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+						}
+							break;
+					};
+				}
+					break;
+
+				case 0:{
+				}
 					break;
 			};
-
-
-
-
+		}
 			break;
 
 		case 3:
-	    	system("clear");
+		{
+			system("clear");
 	        std::cout << "-------------------- COMMANDES DU MAGASIN --------------------" << std::endl;
 			std::cout << "\n 1°) Créer une commande" << std::endl;
 			std::cout << " 2°) Valider une commande" << std::endl;
@@ -171,20 +369,17 @@ int main() {
 				case 0:
 					break;
 			};
+		}
 
 		case 0:
 			break;
-
 		};
 		}while(menu2 != 0);
-
+	}
 		break;
 
-
-
-
-
     case 2:
+    {
     	system("clear");
         std::cout << "-------------------- GESTION DES UTILISATEURS --------------------" << std::endl;
 		std::cout << "\n 1°) Ajouter un article au panier d'un client" << std::endl;
@@ -194,32 +389,32 @@ int main() {
 		std::cout << "\n 0°) Retour" << std::endl;
 		std::cout << "\n   --> Choisissez votre menu en tapant le numéro correspondant" << std::endl;
 		std::cin >> menu2;
-
-
-
-
+    }
 		break;
 
 	case 3:
+	{
 		system("clear");
         std::cout << "-------------------- GESTION DES COMMANDES --------------------" << std::endl;
 		std::cout << "\n 1°) Changer l'etat d'une commande" << std::endl;
 		std::cout << "\n 0°) Quitter" << std::endl;
 		std::cout << "\n   --> Choisissez votre menu en tapant le numéro correspondant" << std::endl;
 		std::cin >> menu2;
-
-
-
-
+	}
 		break;
 
 	case 0:
+	{
 		system("clear");
-		break;
 	}
-} while(menup != 0);
+		break;
+	
+	};
 
-/*
+	}while(menup != 0);
+
+	return 0;
+	/*
 		// Question 2
 	//Création des produits et leurs pointeurs
 	Produit prod1;
@@ -303,6 +498,4 @@ int main() {
 	EasyStore.creerCommande(1);
 	EasyStore.displayCommandesFiltre("Lefaivre", "Remi");
 */
-
-return 0;
 }
