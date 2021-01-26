@@ -39,12 +39,14 @@ public:
 	void changeQttPanier(std::string titre, int quantite, std::string nom, std::string prenom);	// fonction permettant de chnager la quantité de produit voulue dans le panier
 	void changeQttPanier(std::string titre, int quantite, int id);
 
-	void creerCommande(int id);		// fonction permettant de créer une commande pour un client
+	void creerCommande(std::string nom, std::string prenom);		// fonction permettant de créer une commande pour un client à partir de son nom/prénom
+	void creerCommande(int id);		// fonction permettant de créer une commande pour un client à partir de son ID
 	void validerCommande(int numero);		// fonction permettant de valider la commande en cours
 
 	void displayCommandes();	// Affiche l'ensemble des commandes
 	void displayCommandesFiltre(std::string nom, std::string prenom);	// filtre pour trier les commandes
 	void displayCommandesFiltre(int id);
+	void displayCommandeNum(int num);
 
 private:
 

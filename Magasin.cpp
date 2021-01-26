@@ -76,15 +76,16 @@ void Magasin::addClient(std::string nom, std::string prenom) {
 	this->_client.push_back(client);
 }
 
- void Magasin::displayClients() {
+
+void Magasin::displayClients() {
  	std::cout << "    Nom	 Prénom    |	n° Client  	|  Panier   "<< std::endl;
  	std::cout << "-----------------------------------------------------"<< std::endl;
- 		for (int i=0; i< (int) _client.size(); i++){
- 			std::cout << *_client.at(i);
+ 	for (int i=0; i< (int) _client.size(); i++){
+ 		std::cout << *_client.at(i);
  	};
- 	std::cout << "\n \n" << std::endl;
-}
+ 	std::cout << "\n" << std::endl;
 
+ }
 
 void Magasin::displayClientFiltre(std::string nom, std::string prenom) {
 	int n=0, p=0;
@@ -95,7 +96,7 @@ void Magasin::displayClientFiltre(std::string nom, std::string prenom) {
  		}
  	}
  	if( n == 0) {
- 		std::cout << "Cette personne n'est pas un client \n" << std::endl;
+ 		std::cout << "\nCette personne n'est pas un client" << std::endl;
  	}
  	else{
  		for (int i=0; i< (int) _client.size();i++){
@@ -124,7 +125,7 @@ void Magasin::displayClientFiltre(std::string nom, std::string prenom) {
 
 void Magasin::displayClientFiltre(int id) {
 	if(id > (int) _client.size()){
-		std::cout << "Cet ID ne correspond à aucun client \n" << std::endl;
+		std::cout << "\nCet ID ne correspond à aucun client" << std::endl;
 	}
 	else{
 		Client *c = _client.at(id-1); 
@@ -145,7 +146,11 @@ void Magasin::addtoPanier(std::string titre, std::string nom, std::string prenom
 		}
 	}
 	Client *client = _client.at(id-1);
-	Produit *produit = new Produit(titre, "", 1, 0);
+	for(int j=0; j< (int) _produit.size(); i++){
+		if(_produit.at(j)->getTitre() == titre) {
+			Produit *produit = _produit.at(j);
+		}
+	}
 	client->addtoCart(produit);
 }
 
@@ -187,12 +192,30 @@ void Magasin::changeQttPanier(std::string titre, int quantite, int id) {
 	client->changeQuantity(titre, quantite);
 }
 
+
+
+void Magasin::creerCommande(std::string nom, std::string prenom){
+	int id = 0;
+	for(int i=0; i< (int) _client.size(); i++){
+		if((_client.at(i)->getNom() == nom) && (_client.at(i)->getPrenom() == prenom)) {
+			id = _client.at(i)->getID();
+		};
+	};
+	Client* client = _client.at(id-1);
+	std::vector<Produit*> panier = _client.at(id-1)->getPanier();
+	int numero = _commande.size()+1;
+	Commande *commande = new Commande (client, panier, numero);
+	this->_commande.push_back(commande);
+	_client.at(id-1)->clearCart();
+}
+
 void Magasin::creerCommande(int id){
 	Client* client = _client.at(id-1);
 	std::vector<Produit*> panier = _client.at(id-1)->getPanier();
 	int numero = _commande.size()+1;
 	Commande *commande = new Commande (client, panier, numero);
 	this->_commande.push_back(commande);
+	_client.at(id-1)->clearCart();
 }
 
 void Magasin::validerCommande(int numero) {
@@ -225,8 +248,9 @@ void Magasin::displayCommandesFiltre(std::string nom, std::string prenom) {
  			if( (NOM == nom) && (PRENOM == prenom) ) {
  				std::cout << *_commande.at(i);
  				std::vector<Produit*> panier = client->getPanier();
+ 				std::cout << "PANIER :"<< std::endl;
  				for(int j=0; j< (int) panier.size(); j++) {
- 				std::cout << "PANIER :"<< std::endl << "	-->" << *panier.at(j);
+ 					std::cout << "	-->" << *panier.at(j) << std::endl;
  				};
  			};
  		std::cout << "\n \n" << std::endl;
@@ -240,10 +264,22 @@ void Magasin::displayCommandesFiltre(int id) {
  			if( ID == id) {
  				std::cout << *_commande.at(i);
  				std::vector<Produit*> panier = client->getPanier();
+ 				std::cout << "PANIER :"<< std::endl;
  				for(int j=0; j< (int) panier.size(); j++) {
- 				std::cout << "PANIER :"<< std::endl << "	-->" << *panier.at(j);
+ 					std::cout << "	-->" << *panier.at(j) << std::endl;
  				};
  			};
  		std::cout << "\n \n" << std::endl;
  		};
-}
+ 	}
+
+void Magasin::displayCommandeNum(int num) {
+ 			Client* client = _commande.at(num)->getClient();
+ 			std::cout << *_commande.at(num);
+ 			std::vector<Produit*> panier = client->getPanier();
+ 			std::cout << "PANIER :"<< std::endl;
+ 			for(int j=0; j< (int) panier.size(); j++) {
+ 				std::cout << "	-->" << *panier.at(j) << std::endl;
+ 			};
+ 		std::cout << "\n \n" << std::endl;
+ 	};
