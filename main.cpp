@@ -379,7 +379,7 @@ int main() {
 						case 2 :
 						{
 							int id;
-							std::cout << "ID du client : ";
+							std::cout << "\nID du client : ";
 							std::cin >> id;
 							EasyStore.creerCommande(id);
 							std::cout << "\nCommande passée et panier vidé !" << std::endl;
@@ -403,6 +403,7 @@ int main() {
 					if( ch == "O") {
 						EasyStore.validerCommande(num);
 						std::cout << "\nCommande n°" << num << " validée !" << std::endl;
+						std::this_thread::sleep_for(std::chrono::milliseconds(2000));
 					}
 				}
 					break;

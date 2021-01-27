@@ -38,6 +38,7 @@ void Commande::setStatus(std::string etat) {
 
 std::ostream& operator << (std::ostream& output, Commande& obj) {
 	Client* client = obj.getClient();
-    output << "Commande n°" << obj.getNumero() << " de " << client->getNom() << " " << client->getPrenom() << std::endl << " --> STATUS : " << obj.getStatus() << std::endl;
+    output << "Commande n°" << obj.getNumero() << " de " << client->getNom() << " " << client->getPrenom() << std::endl;
+    std::cout << " ||| STATUS : " << obj.getStatus() << std::endl;
     return output;
 }
