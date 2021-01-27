@@ -228,7 +228,7 @@ void Magasin::validerCommande(int numero) {
 
 }
 
-void Magasin::displayCommandes() {
+/*void Magasin::displayCommandes() {
  		for (int i=0; i< (int) _commande.size(); i++){
  			std::cout << *_commande.at(i);
  			Client* client = _commande.at(i)->getClient();
@@ -238,7 +238,7 @@ void Magasin::displayCommandes() {
  			};
  		std::cout << "\n \n" << std::endl;
  		};
-}
+}*/
 
 void Magasin::displayCommandesFiltre(std::string nom, std::string prenom) {
 	for (int i=0; i< (int) _commande.size(); i++){
