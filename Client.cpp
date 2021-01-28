@@ -67,6 +67,7 @@ void Client::deleteProduit(std::string titre){
 
 std::ostream& operator << (std::ostream& output, Client& obj) {
     int sizeNom, sizeNum;
+    float total = 0;
     sizeNom = obj.getPrenom().length() + obj.getNom().length();
     int id = obj.getID();
     if(id >= 1){
@@ -93,8 +94,10 @@ std::ostream& operator << (std::ostream& output, Client& obj) {
     if(panier.size() != 0){
     	for (int i=0; i< (int) panier.size(); i++){
     		output << "   -->" << *panier.at(i) << std::endl;
+        total += (panier.at(i)->getPrix())*((float) (panier.at(i)->getQuantite()));
     	};
-	};
+      std::cout << "   --> TOTAL :" << total << " €" << std::endl;
+    };
     output << std::endl;
     return output;
 }

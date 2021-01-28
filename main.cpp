@@ -249,7 +249,7 @@ int main() {
 
 						case 2 :
 						{
-							int id; /*quantite*/
+							int id, quantite;
 							std::string titre;
 							std::cout << "\nID du client : ";
 							std::cin >> id;
@@ -259,7 +259,7 @@ int main() {
 							std::cout << "\nQuantité de " << titre << " à ajouter : ";
 							std::cin >> quantite;
 							EasyStore.addtoPanier(titre, id);
-						//	EasyStore.changeQttPanier(titre, quantite, id);
+							EasyStore.changeQttPanier(titre, quantite, id);
 							std::this_thread::sleep_for(std::chrono::milliseconds(2000));
 						}
 							break;
@@ -400,7 +400,6 @@ int main() {
 							std::cout << "\nPrenom du client : ";
 							std::getline(std::cin, prenom);
 							EasyStore.creerCommande(nom, prenom);
-							std::cout << "\nCommande passée et panier vidé !" << std::endl;
 							std::this_thread::sleep_for(std::chrono::milliseconds(2000));
 						}
 							break;

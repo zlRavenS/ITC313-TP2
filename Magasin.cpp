@@ -86,7 +86,7 @@ void Magasin::addClient(std::string nom, std::string prenom) {
 
 void Magasin::displayClients() {
  	std::cout << "       Nom       Prénom      |   n° Client    |  Panier ->  "<< std::endl;
- 	std::cout << "-----------------------------------------------------"<< std::endl;
+ 	std::cout << "----------------------------------------------------------"<< std::endl;
  	for (int i=0; i< (int) _client.size(); i++){
  		std::cout << *_client.at(i);
  	};
@@ -291,10 +291,16 @@ void Magasin::creerCommande(std::string nom, std::string prenom){
 	};
 	Client* client = _client.at(id-1);
 	std::vector<Produit*> panier = _client.at(id-1)->getPanier();
-	int numero = _commande.size()+1;
-	Commande *commande = new Commande (client, panier, numero);
-	this->_commande.push_back(commande);
-	_client.at(id-1)->clearCart();
+	if(panier.size() != 0) {
+		int numero = _commande.size()+1;
+		Commande *commande = new Commande (client, panier, numero);
+		this->_commande.push_back(commande);
+		_client.at(id-1)->clearCart();
+		std::cout << "\nCommande de " << nom << " " << prenom << " passée et panier vidé !" << std::endl;
+	}
+	else {
+		std::cout << "Vous ne pouvez pas faire de commande sans articles dans votre panier !" << std::endl;
+	}
 }
 
 void Magasin::creerCommande(int id){
