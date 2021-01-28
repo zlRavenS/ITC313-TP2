@@ -13,22 +13,22 @@ Commande::Commande(Client* client, std::vector<Produit*> panier, int numero) : _
 
 }
 
-Client* Commande::getClient() const
+Client* Commande::getClient() const // Getteur permettant de récupérer le client depuis la bdd des clients
 {
 	return _client;
 }
 
-std::vector<Produit*> Commande::getPanier() const
+std::vector<Produit*> Commande::getPanier() const // Getteur permettant de récupérer le panier d'un client
 {
 	return _panier;
 }
 
-std::string Commande::getStatus() const
+std::string Commande::getStatus() const // Getteur permettant de récupérer le statut d'une commande
 {
 	return _status;
 }
 
-int Commande::getNumero() const
+int Commande::getNumero() const  // Getteur permettant de récupérer le numéro d'une commande
 {
 	return _numero;
 }
