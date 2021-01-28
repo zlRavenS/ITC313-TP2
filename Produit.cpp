@@ -14,6 +14,11 @@ Produit::Produit(std::string titre, std::string description, int quantite, float
 
 }
 
+Produit::Produit(Produit* prod) : _titre(prod->getTitre()), _description(prod->getDescription()), _quantite(prod->getQuantite()), _prix(prod->getPrix()) // Constructeur de la classe Produit prenant en paramètres un pproduit : la PS4
+{
+
+}
+
 Produit::Produit() : _titre("PS5"), _description("Console de Jeu"), _quantite(1), _prix(499.99) // Constructeur de la classe Produit prenant en paramètres un pproduit : la PS4
 {
 

@@ -23,6 +23,7 @@ public:
 
 
     Produit(std::string titre, std::string description, int quantite, float prix); // construteur avec tout les membres de private
+    Produit(Produit* prod); // constructeur afin de faire une copie de produit (pour panier et commande)
     Produit(); // constructeur par défaut
 
     //Getters et Setters

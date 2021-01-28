@@ -30,8 +30,8 @@ public:
 	void displayClientFiltre(std::string nom, std::string prenom);	// fonction permettant d'afficher le filtre clients
 	void displayClientFiltre(int id);
 
-	void addtoPanier(std::string titre, std::string nom, std::string prenom);	// fonction permettant d'ajouter des articles au panier 
-	void addtoPanier(std::string titre, int id);
+	void addtoPanier(std::string titre, int qtt, std::string nom, std::string prenom);	// fonction permettant d'ajouter des articles au panier 
+	void addtoPanier(std::string titre, int qtt, int id);
 
 	void deleteProdPanier(std::string titre, std::string nom, std::string prenom);	// fonction permettant de supprimer un produit du panier
 	void deleteProdPanier(std::string titre, int id);

@@ -241,8 +241,7 @@ int main() {
 							std::getline(std::cin, titre);
 							std::cout << "\nQuantité de " << titre << " à ajouter : ";
 							std::cin >> quantite;
-							EasyStore.addtoPanier(titre, nom, prenom);
-							EasyStore.changeQttPanier(titre, quantite, nom, prenom);
+							EasyStore.addtoPanier(titre, quantite, nom, prenom);
 							std::this_thread::sleep_for(std::chrono::milliseconds(2000));
 						}
 							break;
@@ -258,8 +257,7 @@ int main() {
 							std::getline(std::cin, titre);
 							std::cout << "\nQuantité de " << titre << " à ajouter : ";
 							std::cin >> quantite;
-							EasyStore.addtoPanier(titre, id);
-							EasyStore.changeQttPanier(titre, quantite, id);
+							EasyStore.addtoPanier(titre, quantite, id);
 							std::this_thread::sleep_for(std::chrono::milliseconds(2000));
 						}
 							break;
@@ -297,10 +295,10 @@ int main() {
 						case 2 :
 						{
 							int id;
-							std::cout << "ID du client : ";
+							std::cout << "\nID du client : ";
 							std::cin >> id;
 							std::getline(std::cin, titre);
-							std::cout << "Nom du produit à retirer du panier : ";
+							std::cout << "\nNom du produit à retirer du panier : ";
 							std::getline(std::cin, titre);
 							EasyStore.deleteProdPanier(titre, id);
 							std::cout << "\nArticle retiré du panier du client !" << std::endl;
@@ -335,7 +333,6 @@ int main() {
 							std::cout << "\nCombien en voulez-vous : ";
 							std::cin >> quantite;
 							EasyStore.changeQttPanier(titre, quantite, nom, prenom);
-							std::cout << "\nQuantité de " << titre << " du panier de " << nom << " " << prenom << " modifié à " << quantite << " !" << std::endl;
 							std::this_thread::sleep_for(std::chrono::milliseconds(2000));
 						}
 							break;
@@ -346,12 +343,12 @@ int main() {
 							std::string titre;
 							std::cout << "\nID du client : ";
 							std::cin >> id;
+							std::getline(std::cin, titre);
 							std::cout << "\nDe quel produit souhaitez vous modifier la quantite au panier : ";
 							std::getline(std::cin, titre);
 							std::cout << "\nCombien en voulez-vous : ";
 							std::cin >> quantite;
 							EasyStore.changeQttPanier(titre, quantite, id);
-							std::cout << "\nQuantité de " << titre << " du panier du client n°" << id << " modifié à " << quantite << " !" << std::endl;
 							std::this_thread::sleep_for(std::chrono::milliseconds(2000));
 						}
 							break;
