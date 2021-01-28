@@ -152,7 +152,7 @@ int main() {
 						std::cout << "\nPrenom du client : ";
 					std::getline(std::cin, prenom);
 					EasyStore.addClient(nom, prenom);
-					std::cout << "\n" << nom << " " << prenom << " est  enregistré comme client !" << std::endl;
+					std::cout << "\n" << nom << " " << prenom << " est enregistré comme client !" << std::endl;
 					std::this_thread::sleep_for(std::chrono::milliseconds(2000));
 					}
 				}
@@ -233,9 +233,9 @@ int main() {
 							std::string nom, prenom, titre;
 							int quantite;
 							std::getline(std::cin, nom);
-							std::cout << "Nom du client : ";
+							std::cout << "\nNom du client : ";
 							std::getline(std::cin, nom);
-							std::cout << "Prenom du client : ";
+							std::cout << "\nPrenom du client : ";
 							std::getline(std::cin, prenom);
 							std::cout << "\nNom du produit à ajouter au panier : ";
 							std::getline(std::cin, titre);
@@ -249,7 +249,7 @@ int main() {
 
 						case 2 :
 						{
-							int id, quantite;
+							int id; /*quantite*/
 							std::string titre;
 							std::cout << "\nID du client : ";
 							std::cin >> id;
@@ -259,7 +259,7 @@ int main() {
 							std::cout << "\nQuantité de " << titre << " à ajouter : ";
 							std::cin >> quantite;
 							EasyStore.addtoPanier(titre, id);
-							EasyStore.changeQttPanier(titre, quantite, id);
+						//	EasyStore.changeQttPanier(titre, quantite, id);
 							std::this_thread::sleep_for(std::chrono::milliseconds(2000));
 						}
 							break;
@@ -273,9 +273,6 @@ int main() {
 					std::cout << "------------------------- RETIRER DU PANIER -------------------------" << std::endl;
 					std::string titre;
 					int choix;
-					std::getline(std::cin, titre);
-					std::cout << "Nom du produit à retirer du panier : ";
-					std::getline(std::cin, titre);
 					std::cout << "\nTrouver le client par son Nom/Prenom ou son ID ? " << std::endl;
 					std::cout << "	1°) Nom/Prenom" << std::endl;
 					std::cout << "	2°) ID" << std::endl;
@@ -288,7 +285,9 @@ int main() {
 							std::cout << "\nNom du client : ";
 							std::getline(std::cin, nom);
 							std::cout << "\nPrenom du client : ";
-							std::getline(std::cin, prenom);
+							std::getline(std::cin, prenom);		
+							std::cout << "Nom du produit à retirer du panier : ";
+							std::getline(std::cin, titre);
 							EasyStore.deleteProdPanier(titre, nom, prenom);
 							std::cout << "\nArticle retiré du panier du client !" << std::endl;
 							std::this_thread::sleep_for(std::chrono::milliseconds(2000));
@@ -300,6 +299,9 @@ int main() {
 							int id;
 							std::cout << "ID du client : ";
 							std::cin >> id;
+							std::getline(std::cin, titre);
+							std::cout << "Nom du produit à retirer du panier : ";
+							std::getline(std::cin, titre);
 							EasyStore.deleteProdPanier(titre, id);
 							std::cout << "\nArticle retiré du panier du client !" << std::endl;
 							std::this_thread::sleep_for(std::chrono::milliseconds(2000));

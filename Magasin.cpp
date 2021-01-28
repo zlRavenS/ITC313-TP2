@@ -158,7 +158,7 @@ void Magasin::addtoPanier(std::string titre, std::string nom, std::string prenom
 	}
 	if(comptc != 0) {
 		Client *client = _client.at(id-1);
-		for(int j=0; j< (int) _produit.size(); j++){
+		for(int j=0; j< (int) _produit.size(); j++) {
 			if(_produit.at(j)->getTitre() == titre) {
 				Produit *prod = _produit.at(j);
 				client->addtoCart(prod);
@@ -192,7 +192,7 @@ void Magasin::addtoPanier(std::string titre, int id) {
 			std::cout << "\nCet article n'est pas en stock" << std::endl;
 		}
 		else {
-			std::cout << "\n" << titre << " ajouté au panier du cient n° " << id << " avec succès !" << std::endl;
+			std::cout << "\n" << titre << " ajouté au panier du client n° " << id << " avec succès !" << std::endl;
 		}
 	}
 }
