@@ -364,7 +364,7 @@ void Magasin::displayCommandesFiltre(int id) {	// Surcharge de la fonction préc
  	};
  }
 
-void Magasin::displayCommandeNum(int num) {	// Fonctions permettant d'afficher les commandes avec le numéro de la commande pris en paramètres
+void Magasin::displayCommandeNum(int num) {	// Fonctions permettant d'afficher la commande avec le numéro de la commande pris en paramètres
  	std::cout << *_commande.at(num-1);
  	std::cout << "PANIER :"<< std::endl;
  	std::vector<Produit*> panier = _commande.at(num-1)->getPanier();
