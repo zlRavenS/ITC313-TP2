@@ -42,6 +42,7 @@ public:
 	void creerCommande(std::string nom, std::string prenom);		// fonction permettant de créer une commande pour un client à partir de son nom/prénom
 	void creerCommande(int id);		// fonction permettant de créer une commande pour un client à partir de son ID
 	void validerCommande(int numero);		// fonction permettant de valider la commande en cours
+	void statusCommande(int numero, int etat);		// fonction permettant de changer le status d'un commande
 
 	void displayCommandes();	// Affiche l'ensemble des commandes
 	void displayCommandesFiltre(std::string nom, std::string prenom);	// filtre pour trier les commandes

@@ -200,9 +200,13 @@ void Magasin::deleteProdPanier(std::string titre, std::string nom, std::string p
 		for(int j=0; j< (int) panier.size(); j++){
 			if(panier.at(j)->getTitre() == titre) {
 				int qtt = panier.at(j)->getQuantite();
-				client->deleteProduit(titre);
-				_produit.at(j)->setQuantite((_produit.at(j)->getQuantite()) + (qtt));
-				comptp++;
+				for(int k=0; k< (int) _produit.size(); k++){
+					if(_produit.at(k)->getTitre() == titre) {		
+						_produit.at(k)->setQuantite((_produit.at(k)->getQuantite()) + (qtt));
+						client->deleteProduit(titre);
+						comptp++;
+					}
+				}
 			};
 		};
 		if(comptp == 0) {
@@ -234,11 +238,15 @@ void Magasin::changeQttPanier(std::string titre, int quantite, std::string nom, 
 	for(int j=0; j< (int) panier.size(); j++){
 		if(panier.at(j)->getTitre() == titre) {
 			int qtt = panier.at(j)->getQuantite();
-			_produit.at(j)->setQuantite((_produit.at(j)->getQuantite()) + (qtt));
-			client->changeQuantity(titre, quantite);
-			_produit.at(j)->setQuantite((_produit.at(j)->getQuantite()) - (quantite));
-			std::cout << "\nQuantité de " << titre << " du panier de " << nom << " " << prenom << " modifié à " << quantite << " !" << std::endl;
-			comptp++;
+			for(int k=0; k< (int) _produit.size(); k++){
+				if(_produit.at(k)->getTitre() == titre){
+					_produit.at(k)->setQuantite((_produit.at(k)->getQuantite()) + (qtt));
+					client->changeQuantity(titre, quantite);
+					_produit.at(k)->setQuantite((_produit.at(k)->getQuantite()) - (quantite));
+					std::cout << "\nQuantité de " << titre << " du panier de " << nom << " " << prenom << " modifié à " << quantite << " !" << std::endl;
+					comptp++;
+				}
+			}
 		};
 	};
 	if(comptp == 0) {
@@ -293,6 +301,26 @@ void Magasin::validerCommande(int numero) { // Fonction permettant de valider le
       commande->setStatus("Validée");
     }
   }
+}
+
+void Magasin::statusCommande(int numero, int etat) { // Fonction permettant de valider les commandes d'un client
+	for(int i=0; i< (int) _commande.size(); i++){
+    	Commande *commande = _commande.at(i);
+    	if(commande->getNumero() == numero){
+     		if( etat ==  1){
+      			commande->setStatus("En cours de préparation");
+      		}
+      		if( etat == 2){
+      			commande->setStatus("Expédiée");
+      		}
+      		if( etat == 3){
+      			commande->setStatus("Livrée");
+      		}
+      		if( etat == 4){
+      			commande->setStatus("Annulée");
+      		}
+    	}
+ 	}
 }
 
 void Magasin::displayCommandes() { // Fonction permettant d'afficher les commandes
