@@ -27,7 +27,7 @@ public:
 
     //Getters et Setters
        
-    std::string getTitre(); // Getteur permettant de récupérer le titre du produit
+    std::string getTitre() const; // Getteur permettant de récupérer le titre du produit
     std::string getDescription() const;  // Getteur permettant de récupérer la description du produit
     int getQuantite() const;  // Getteur permettant de récupérer la quantité du produit
     float getPrix() const;   // Getteur permettant de récupérer le prix du produit

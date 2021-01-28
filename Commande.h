@@ -20,10 +20,10 @@ public:
 
 	Commande(Client* client, std::vector<Produit*> panier, int numero);	// construteur contenant tous les membres appartenant à private
 
-	Client* getClient();	// Getteur permettant de récupérer les infos du client
-	std::vector<Produit*> getPanier();	// Getteur permettant de récupérer le panier du client pour la commande
-	std::string getStatus();	// Getteur permettant de récupérer le statut de la commande
-	int getNumero();	// Getteur permettant de récupérer le numéro de la commande
+	Client* getClient() const;	// Getteur permettant de récupérer les infos du client
+	std::vector<Produit*> getPanier() const;	// Getteur permettant de récupérer le panier du client pour la commande
+	std::string getStatus() const;	// Getteur permettant de récupérer le statut de la commande
+	int getNumero() const;	// Getteur permettant de récupérer le numéro de la commande
 
 	void setStatus(std::string etat); // Setteur permettant de déterminer et/ou changer l'état de la commande
 

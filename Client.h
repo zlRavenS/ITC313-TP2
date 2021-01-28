@@ -21,10 +21,10 @@ public:
 
 	Client(std::string nom, std::string prenom, int id);	// construteur contenant tous les membres appartenant à private
 
-	int getID(); // Getteur permettant de récupérer l'id du client
-	std::string getPrenom(); // Getteur permettant de récupérer le prénom du client
-	std::string getNom();	// Getteur permettant de récupérer le nom du client
-	std::vector<Produit*> getPanier(); // Getteur permettant de récupérer le panier du client
+	int getID() const; // Getteur permettant de récupérer l'id du client
+	std::string getPrenom() const; // Getteur permettant de récupérer le prénom du client
+	std::string getNom() const;	// Getteur permettant de récupérer le nom du client
+	std::vector<Produit*> getPanier() const; // Getteur permettant de récupérer le panier du client
 
 	void addtoCart(Produit* produit);	// fonction permettant d'ajouter un produit au panier
 	void clearCart();	// fonction permettant de vider le panier

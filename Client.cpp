@@ -8,27 +8,27 @@
 #include "Client.h"
 
 
-Client::Client(std::string nom, std::string prenom, int id) : _nom(nom), _prenom(prenom), _id(id) { // constructeur de la classe Client 
+Client::Client(std::string nom, std::string prenom, int id) : _nom(nom), _prenom(prenom), _id(id) {
 
 }
 
 
-std::string Client::getPrenom() // Getters qui permet de récupérer le prénom d'un client
+std::string Client::getPrenom() const
 {
     return _prenom;
 }
 
-std::string Client::getNom()  // Getteurs qui permet de récupérer le nom d'un client
+std::string Client::getNom() const
 {
     return _nom;
 }
 
-int Client::getID()   // Getteurs permettant de récupérer l'id d'un client
+int Client::getID() const
 {
     return _id;
 }
 
-std::vector<Produit*> Client::getPanier() // Getteurs permettant de récupérer le panier d'un client
+std::vector<Produit*> Client::getPanier() const
 {
 	return _panier;
 }
@@ -36,16 +36,16 @@ std::vector<Produit*> Client::getPanier() // Getteurs permettant de récupérer 
 
 
 
-void Client::addtoCart(Produit* produit){   // Fonction permettant d'ajouter un produit dans le panier du client
+void Client::addtoCart(Produit* produit){
   this->_panier.push_back(produit);
 }
 
 
-void Client::clearCart(){ // Fonction permettant de vider le panier avec la commande "clear"
+void Client::clearCart(){
 	_panier.clear();
 }
 
-void Client::changeQuantity(std::string titre, int quantite){ // Fonction permettant de changer la quantité d'un produit qui est déjà dans le panier d'un client
+void Client::changeQuantity(std::string titre, int quantite){
 	for(int i=0; i< (int) _panier.size(); i++){
 		Produit *article = _panier.at(i);
 		if(article->getTitre() == titre){
@@ -54,7 +54,7 @@ void Client::changeQuantity(std::string titre, int quantite){ // Fonction permet
 	}
 }
 
-void Client::deleteProduit(std::string titre){  // Fonction permettant de supprimer un produit du panier du client
+void Client::deleteProduit(std::string titre){
   for(int i=0; i< (int) _panier.size(); i++){
     Produit *article = _panier.at(i);
     if(article->getTitre() == titre){
@@ -65,8 +65,30 @@ void Client::deleteProduit(std::string titre){  // Fonction permettant de suppri
 
 
 
-std::ostream& operator << (std::ostream& output, Client& obj) { // surcharge de l'opérateur << pour l'affichage de nos vecteurs
-    output << "-" << obj.getNom() << " " << obj.getPrenom() << " | Client n°" << obj.getID() << " | Panier : \n";
+std::ostream& operator << (std::ostream& output, Client& obj) {
+    int sizeNom, sizeNum;
+    sizeNom = obj.getPrenom().length() + obj.getNom().length();
+    int id = obj.getID();
+    if(id >= 1){
+      sizeNum = 1;
+    }
+    if(id >= 10){
+      sizeNum = 2;
+    }
+    if(id >= 100){
+      sizeNum = 3;
+    }
+    if(id >= 1000){
+      sizeNum = 4;
+    }
+    std::string espNom, espNum;
+    for(int i = sizeNom; i<26; i++) {
+      espNom += " ";
+    }
+    for(int i = sizeNum; i<5; i++) {
+      espNum += " ";
+    }
+    output << "-" << obj.getNom() << " " << obj.getPrenom()  << espNom << " | Client n°" << obj.getID() << espNum << " | Panier : \n";
     std::vector<Produit*> panier = obj.getPanier();
     if(panier.size() != 0){
     	for (int i=0; i< (int) panier.size(); i++){

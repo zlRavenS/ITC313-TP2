@@ -13,19 +13,23 @@ Commande::Commande(Client* client, std::vector<Produit*> panier, int numero) : _
 
 }
 
-Client* Commande::getClient() {   // Getteurs récupérant le Client de la commande
+Client* Commande::getClient() const
+{
 	return _client;
 }
 
-std::vector<Produit*> Commande::getPanier() { // Getteur permettant de récupérer le panier d'un client pour passer la commande
+std::vector<Produit*> Commande::getPanier() const
+{
 	return _panier;
 }
 
-std::string Commande::getStatus() { // Getteur permettant de récupérer le statut d'une commande
+std::string Commande::getStatus() const
+{
 	return _status;
 }
 
-int Commande::getNumero() { // Getteur permettant de récupérer le numéro d'une commande
+int Commande::getNumero() const
+{
 	return _numero;
 }
 

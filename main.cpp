@@ -9,7 +9,7 @@ int main() {
 	std::string q;
 
 	do{
-	//system("clear");
+	system("clear");
 	std::cout << "------------------------- MENU DU MAGASIN -------------------------" << std::endl;
 	std::cout << "\n 1°) Gestion du Magasin" << std::endl;
 	std::cout << "\n 0°) Quitter" << std::endl;
@@ -243,7 +243,6 @@ int main() {
 							std::cin >> quantite;
 							EasyStore.addtoPanier(titre, nom, prenom);
 							EasyStore.changeQttPanier(titre, quantite, nom, prenom);
-							std::cout << titre << " est ajouté au panier de " << nom << " " << prenom << " !" << std::endl;
 							std::this_thread::sleep_for(std::chrono::milliseconds(2000));
 						}
 							break;
@@ -261,7 +260,6 @@ int main() {
 							std::cin >> quantite;
 							EasyStore.addtoPanier(titre, id);
 							EasyStore.changeQttPanier(titre, quantite, id);
-							std::cout << titre << " est ajouté au panier du client n°" << id << " !" << std::endl;
 							std::this_thread::sleep_for(std::chrono::milliseconds(2000));
 						}
 							break;
@@ -448,9 +446,9 @@ int main() {
 					std::cout << "------------------------- COMMANDES DU MAGASIN -------------------------" << std::endl;
 					EasyStore.displayCommandes();
 					do{
-						std::cout << "Entrez Q (en majuscule svp) pour quitter" << std::endl;
+						std::cout << "Entrez Q pour quitter" << std::endl;
 						std::cin >> q;
-					}while( q != "Q" );
+					}while( q != "Q" && q != "q" );
 				}
 
 					break;

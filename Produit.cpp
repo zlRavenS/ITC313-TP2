@@ -19,7 +19,7 @@ Produit::Produit() : _titre("PS5"), _description("Console de Jeu"), _quantite(1)
 
 }
 
-std::string Produit::getTitre() // Getteur permettant de récupérer le Titre d'un produit
+std::string Produit::getTitre() const
 {
     return _titre;
 }
@@ -45,8 +45,35 @@ void Produit::setQuantite(int quantite) // Setteur permettant de
 }
 
 
-std::ostream& operator << (std::ostream& output, Produit& obj) { // Surcharge de l'opérateur << permettant d'afficher correctement les articles/produits du magasin
-    output << obj.getTitre() << "             " << obj.getDescription() << "                   (" << obj.getQuantite() << ")            ";
+
+std::ostream& operator << (std::ostream& output, Produit& obj) {
+    int sizetitre, sizedesc, sizeqtt, qtt;
+    sizetitre = obj.getTitre().length();
+    sizedesc = obj.getDescription().length();
+    qtt = obj.getQuantite();
+    if(qtt >= 1){
+      sizeqtt = 1;
+    }
+    if(qtt >= 10){
+      sizeqtt = 2;
+    }
+    if(qtt >= 100){
+      sizeqtt = 3;
+    }
+    if(qtt >= 1000){
+      sizeqtt = 4;
+    }
+    std::string espT, espD, espQ;
+    for(int i = sizetitre; i<22; i++) {
+      espT += " ";
+    }
+    for(int i = sizedesc; i<26; i++) {
+      espD += " ";
+    }
+    for(int i = sizeqtt; i<7; i++) {
+      espQ += " ";
+    }
+    output << obj.getTitre() << espT << obj.getDescription() << espD << "(" << obj.getQuantite() << ")" << espQ;
     if(obj.getPrix() != 0) {
        output << obj.getPrix() << " €";
     };
