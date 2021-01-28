@@ -1,7 +1,7 @@
 /*
   *Fichier:	Magasin.cpp
   *Author:	Rémi Lefaivre (Remi_Lefaivre@etu.u-bourgogne.fr)
-  *Date: 	04/01/2021
+  *Date: 	28/01/2021
   *Summary: Declaration de la classe Magasin
 */
 
@@ -15,12 +15,12 @@ Magasin::Magasin(){
 
 ////////////// Fonctions des Produits //////////////
 
-void Magasin::addProduit(std::string titre, std::string description, int quantite, float prix) {
+void Magasin::addProduit(std::string titre, std::string description, int quantite, float prix) { // Fonction permettant d'ajouter un produit dans le magasin
 	Produit *produit = new Produit(titre, description, quantite, prix);
 	this->_produit.push_back(produit);
 }
 
-void Magasin::displayProd() {
+void Magasin::displayProd() { 	// Fonction permettant d'afficher tous les produit du magasin
  	std::cout << "         NOM         |       DESCRIPTION       |  QTT  |    PRIX    "<< std::endl;
  	std::cout << "-----------------------------------------------------------------------"<< std::endl;
  		for (int i=0; i< (int) _produit.size(); i++){
@@ -29,7 +29,7 @@ void Magasin::displayProd() {
  	std::cout << "\n" << std::endl;
 }
 
-void Magasin::displayProdFiltre(std::string titre) {
+void Magasin::displayProdFiltre(std::string titre) { // Fonction permettant d'afficher que le produit dont le titre a été mis en paramètres
 	int j=0;
 	for (int i=0; i< (int) _produit.size();i++){
 		Produit *p = _produit.at(i); 
@@ -53,7 +53,7 @@ void Magasin::displayProdFiltre(std::string titre) {
  	std::cout << "\n" << std::endl;
 }
 
-void Magasin::setQtt(std::string titre, int n){
+void Magasin::setQtt(std::string titre, int n){ // Fonction permettant de changer la quantité d'un produit en magasin
 	int comptp = 0;
 	for (int i=0; i< (int) _produit.size();i++){
 		Produit *p = _produit.at(i); 
@@ -77,13 +77,13 @@ void Magasin::setQtt(std::string titre, int n){
 
 ////////////// Fonctions des Clients //////////////
 
-void Magasin::addClient(std::string nom, std::string prenom) {
+void Magasin::addClient(std::string nom, std::string prenom) { // Fonction permettant d'ajouter un client à la liste des clients
 	int id = _client.size()+1;
 	Client *client = new Client(nom, prenom, id);
 	this->_client.push_back(client);
 }
 
-void Magasin::displayClients() {
+void Magasin::displayClients() { // Fonction permettant d'afficher la liste des clients
  	std::cout << "       Nom       Prénom      |   n° Client    |  Panier ->  "<< std::endl;
  	std::cout << "----------------------------------------------------------"<< std::endl;
  	for (int i=0; i< (int) _client.size(); i++){
@@ -94,7 +94,7 @@ void Magasin::displayClients() {
  }
 
 
-void Magasin::displayClientFiltre(std::string nom, std::string prenom) {
+void Magasin::displayClientFiltre(std::string nom, std::string prenom) { // Fonction permettant d'afficher le client dont le nom ou prénom a été mis en paramètres
 	int n=0, p=0;
 	for (int i=0; i< (int) _client.size();i++){
 		Client *c = _client.at(i); 
@@ -129,7 +129,7 @@ void Magasin::displayClientFiltre(std::string nom, std::string prenom) {
  	std::cout << "\n" << std::endl;
 }
 
-void Magasin::displayClientFiltre(int id) {
+void Magasin::displayClientFiltre(int id) { // Surcharge de la fonction précédente qui maintenat permettant aussi d'afficher le client dont l'id a été mis en paramètres
 	if(id > (int) _client.size()){
 		std::cout << "\nCet ID ne correspond à aucun client" << std::endl;
 	}
@@ -141,7 +141,7 @@ void Magasin::displayClientFiltre(int id) {
 	std::cout << "\n" << std::endl;
 }
 
-void Magasin::addtoPanier(std::string titre, int qtt, std::string nom, std::string prenom) {
+void Magasin::addtoPanier(std::string titre, int qtt, std::string nom, std::string prenom) { // Fonction permettant d'ajouter un produit au panier du client via le nom et prénom du client
 	int id = 0, comptc=0, comptp=0;
 	for(int i=0; i< (int) _client.size(); i++){
 		if((_client.at(i)->getNom() == nom) && (_client.at(i)->getPrenom() == prenom)) {
@@ -172,7 +172,7 @@ void Magasin::addtoPanier(std::string titre, int qtt, std::string nom, std::stri
 	}
 }
 
-void Magasin::addtoPanier(std::string titre, int qtt, int id) {
+void Magasin::addtoPanier(std::string titre, int qtt, int id) { // Surcharge de la Fonction précédente qui maintenant permet aussi d'ajouter un produit au panier du client via l'id du client
 	if(id > (int) _client.size()){
 		std::cout << "\nCet ID ne correspond à aucun client" << std::endl;
 	}
@@ -183,7 +183,7 @@ void Magasin::addtoPanier(std::string titre, int qtt, int id) {
 	};
 }
 
-void Magasin::deleteProdPanier(std::string titre, std::string nom, std::string prenom) {
+void Magasin::deleteProdPanier(std::string titre, std::string nom, std::string prenom) { // Fonction permettant d'enlever un produit du panier d'un client via son nom et prénom
 	int id = 0, comptc = 0, comptp = 0;
 	for(int i=0; i< (int) _client.size(); i++){
 		if((_client.at(i)->getNom() == nom) && (_client.at(i)->getPrenom() == prenom)) {
@@ -211,7 +211,7 @@ void Magasin::deleteProdPanier(std::string titre, std::string nom, std::string p
 	}
 }
 
-void Magasin::deleteProdPanier(std::string titre, int id) {
+void Magasin::deleteProdPanier(std::string titre, int id) { // Surcharge de la Fonction précédente qui maintenant permet aussi d'enlever un produit du panier du client via son id 
 	if(id > (int) _client.size()){
 		std::cout << "\nCet ID ne correspond à aucun client" << std::endl;
 	}
@@ -222,7 +222,7 @@ void Magasin::deleteProdPanier(std::string titre, int id) {
 	}
 }
 
-void Magasin::changeQttPanier(std::string titre, int quantite, std::string nom, std::string prenom) {
+void Magasin::changeQttPanier(std::string titre, int quantite, std::string nom, std::string prenom) { // Fonction permettant de changer la quantité d'un produit du panier d'un client via son nom et prénom
 	int id = 0, comptp = 0;
 	for(int i=0; i< (int) _client.size(); i++){
 		if((_client.at(i)->getNom() == nom) && (_client.at(i)->getPrenom() == prenom)) {
@@ -246,7 +246,7 @@ void Magasin::changeQttPanier(std::string titre, int quantite, std::string nom, 
 	}
 }
 
-void Magasin::changeQttPanier(std::string titre, int quantite, int id) {
+void Magasin::changeQttPanier(std::string titre, int quantite, int id) { // Surcharge de la fonction précedente permettant de changer la quantité d'un produit du panier d'un client via son id
 	std::string nom = _client.at(id-1)->getNom();
 	std::string prenom = _client.at(id-1)->getPrenom();
 	changeQttPanier(titre, quantite, nom, prenom);
@@ -256,7 +256,7 @@ void Magasin::changeQttPanier(std::string titre, int quantite, int id) {
 
 ////////////// Fonctions des Commandes //////////////
 
-void Magasin::creerCommande(std::string nom, std::string prenom){
+void Magasin::creerCommande(std::string nom, std::string prenom){ // Fonction permettant de créer la commande d'un client et de vider le panier du client qui passe la commande  via son nom et prénom
 	int id = 0;
 	for(int i=0; i< (int) _client.size(); i++){
 		if((_client.at(i)->getNom() == nom) && (_client.at(i)->getPrenom() == prenom)) {
@@ -277,7 +277,7 @@ void Magasin::creerCommande(std::string nom, std::string prenom){
 	}
 }
 
-void Magasin::creerCommande(int id){
+void Magasin::creerCommande(int id){ // Surcharge de la fonction précédente permettant de créer la commande d'un client et de vider le panier du client qui passe la commande via son id
 	Client* client = _client.at(id-1);
 	std::vector<Produit*> panier = _client.at(id-1)->getPanier();
 	int numero = _commande.size()+1;
@@ -286,7 +286,7 @@ void Magasin::creerCommande(int id){
 	_client.at(id-1)->clearCart();
 }
 
-void Magasin::validerCommande(int numero) {
+void Magasin::validerCommande(int numero) { // Fonction permettant de valider les commandes d'un client
 	for(int i=0; i< (int) _commande.size(); i++){
     Commande *commande = _commande.at(i);
     if(commande->getNumero() == numero){
@@ -295,7 +295,7 @@ void Magasin::validerCommande(int numero) {
   }
 }
 
-void Magasin::displayCommandes() {
+void Magasin::displayCommandes() { // Fonction permettant d'afficher les commandes
  	for (int i=0; i< (int) _commande.size(); i++){
  		std::cout << *_commande.at(i);
 		std::cout << "PANIER :"<< std::endl;
@@ -308,7 +308,7 @@ void Magasin::displayCommandes() {
 	std::cout << "\n" << std::endl;
 }
 
-void Magasin::displayCommandesFiltre(std::string nom, std::string prenom) {
+void Magasin::displayCommandesFiltre(std::string nom, std::string prenom) { // Fonction permettant d'afficher les commandes selon le nom ou prénom pris en paramètre
 	int compt = 0;
 	for (int i=0; i< (int) _commande.size(); i++){
  		Client* client = _commande.at(i)->getClient();
@@ -332,7 +332,7 @@ void Magasin::displayCommandesFiltre(std::string nom, std::string prenom) {
  	}
 }
 
-void Magasin::displayCommandesFiltre(int id) {
+void Magasin::displayCommandesFiltre(int id) { // Surcharge de la fonction précédente qui mtn permet aussi d'afficher les commandes selon l'id mis en paramètre
 	if(id <= (int) _client.size()) {
 		std::string nom = _client.at(id-1)->getNom();
 		std::string prenom = _client.at(id-1)->getPrenom();
@@ -345,7 +345,7 @@ void Magasin::displayCommandesFiltre(int id) {
  }
 
 
-void Magasin::displayCommandeNum(int num) {
+void Magasin::displayCommandeNum(int num) { // Fonctions permettant d'afficher la commande avec le numéro de la commande pris en paramètres
 	if( num <= (int) _commande.size()) {
 		std::cout << "\n" << std::endl;
  	std::cout << *_commande.at(num-1);

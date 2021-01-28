@@ -1,7 +1,7 @@
 /*
   *Fichier:	Produit.h
   *Author:	Paul Ledoux (Paul_Ledoux@etu.u-bourgogne.fr)
-  *Date: 	04/01/2021
+  *Date: 	28/01/2021
   *Summary: Declaration de la classe Produit
 */
 

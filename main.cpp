@@ -3,22 +3,22 @@
 #include <thread>
 #include "Magasin.h"
 
-int main() {
+int main() { // on déclare les variables dont nous avons besoin
 	Magasin EasyStore;
 	int menup, menu2, menu3;
 	std::string q;
 
-	do{
+	do{ // Permet d'afficher le menu de départ en boucle tant que l'utilisateur n'appuie pas sur 0 pour quitter le programme
 	system("clear");
-	std::cout << "------------------------- MENU DU MAGASIN -------------------------" << std::endl;
+	std::cout << "------------------------- MENU DU MAGASIN -------------------------" << std::endl; // Architecture du menu
 	std::cout << "\n 1°) Gestion du Magasin" << std::endl;
 	std::cout << "\n 0°) Quitter" << std::endl;
 	std::cout << "\n   --> Choisissez votre menu en tapant le numéro correspondant" << std::endl;
 	std::cin >> menup;
-	switch(menup) {
+	switch(menup) { // Switch pour les choix dans le menu ici une fois que l'user a tapé 1
     case 1:
     {	
-    	do{
+    	do{ // Vu que l'user a rentré 1 on clear l'affichage et on affiche le menu de gestion du magasin
     	system("clear");
         std::cout << "------------------------- GESTION DU MAGASIN -------------------------" << std::endl;
 		std::cout << "\n 1°) Produits" << std::endl;
@@ -30,8 +30,8 @@ int main() {
 
 
 
-		switch(menu2) {
-	    case 1:
+		switch(menu2) { // Nouveau switch pour le menu de gestion du magasin avec tout les choix à la clé
+	    case 1: // Vu que l'user a rentré 1 on clear l'affichage et on affiche le menu de gestion des produits
 	    {
 	    	system("clear");
 	        std::cout << "------------------------- GESTION DES PRODUITS -------------------------" << std::endl;
@@ -43,11 +43,11 @@ int main() {
 			std::cout << "\n   --> Choisissez votre menu en tapant le numéro correspondant" << std::endl;
 			std::cin >> menu3;
 
-			switch(menu3) {
+			switch(menu3) { // Nouveau switch pour l'ajout de produit au magasin 
 
 			case 1:
 			{
-				system("clear");
+				system("clear"); // Vu que l'user a rentré 1 on clear l'affichage et on affiche le menu permettant d'ajouter un produit au magasin
 				std::cout << "------------------------- AJOUT D'UN PRODUIT -------------------------" << std::endl;
 				std::string titre, description;
 				int quantite;
@@ -70,7 +70,7 @@ int main() {
 			}
 				break;
 
-			case 2:
+			case 2: // Vu que l'user a rentré 2 on clear l'affichage et on affiche le menu avec tous les produits disponibles + description + prix
 			{
 				q = "0";
 				system("clear");
@@ -83,7 +83,7 @@ int main() {
 			}
 				break;
 
-			case 3:
+			case 3: // Vu que l'user a rentré 3 on clear l'affichage et on affiche le menu d'un produit en particulier avec sa description et son prix
 			{
 				system("clear");
 				std::cout << "------------------------- RECHERCHE D'UN PRODUIT -------------------------" << std::endl;
@@ -101,7 +101,7 @@ int main() {
 			}
 				break;
 
-			case 4:
+			case 4: // Vu que l'user a rentré 4 on clear l'affichage et on affiche qui permet de modifier la quantité d'un produit
 			{
 				system("clear");
 				std::cout << "------------------------- QUANTITE D'UN PRODUIT -------------------------" << std::endl;
@@ -117,13 +117,13 @@ int main() {
 			}	
 				break;
 
-			case 0:
+			case 0: // Nous permet de revenir au menu précédent
 				break;
 			};
 		}
 			break;
 
-		case 2:
+		case 2: // Vu que l'user a rentré 2 on clear l'affichage et on affiche le menu de gestion des clients
 		{
 			system("clear");
 	        std::cout << "------------------------- CLIENTS DU MAGASIN -------------------------" << std::endl;
@@ -137,9 +137,9 @@ int main() {
 			std::cout << "\n   --> Choisissez votre menu en tapant le numéro correspondant" << std::endl;
 			std::cin >> menu3;
 
-			switch(menu3) {
+			switch(menu3) { // Boucle permettant de gérer menu3 càd le menu des clients
 
-				case 1:
+				case 1: // Vu que l'user a rentré 1 on clear l'affichage et on affiche le menu permettant d'enregistrer un nouveau client
 				{
 					system("clear");
 					std::cout << "------------------------- NOUVEAU CLIENT -------------------------" << std::endl;
@@ -156,10 +156,10 @@ int main() {
 					std::this_thread::sleep_for(std::chrono::milliseconds(2000));
 					}
 				}
-					break;
+					break; // On revient au menu précédent
 				
 
-				case 2:
+				case 2: // Vu que l'user a rentré 2 on clear l'affichage et on affiche le menu des clients enregistrés
 				{
 					q = "0";
 					std::cout << "------------------------- CLIENTS DU MAGASIN -------------------------" << std::endl;
@@ -172,7 +172,7 @@ int main() {
 				}
 					break;
 
-				case 3:
+				case 3: // Vu que l'user a rentré  on clear l'affichage et on affiche le menu de rechcerche d'un client en particulier
 				{
 					int choix;
 					do {
@@ -183,8 +183,8 @@ int main() {
 					std::cout << "	1°) Par son Nom/Prenom" << std::endl;
 					std::cout << "	2°) Par son ID" << std::endl;
 					std::cin >> choix;
-					switch(choix) {
-						case 1 :
+					switch(choix) { // Le menu propose deux choix, soit par recherche via Nom/Prénom soit par ID
+						case 1 : // Vu que l'user a rentré 1 on demande le nom du client et le prénom du client pour le retrouver
 						{
 							std::string nom, prenom;
 							std::getline(std::cin, nom);
@@ -194,13 +194,13 @@ int main() {
 							std::getline(std::cin, prenom);
 							EasyStore.displayClientFiltre(nom, prenom);
 							do{
-								std::cout << "Entrez Q pour quitter" << std::endl;
+								std::cout << "Entrez Q pour quitter" << std::endl; // Boucle qui oblige les clients à quitter
 								std::cin >> q;
-							}while( q != "Q" && q != "q" );
+							}while( q != "Q" && q != "q" ); // Pour éviter des erreurs, la condition se valide si on est en minuscule ou en majuscule
 						}
 							break;
 
-						case 2 :
+						case 2 : // Vu que l'user a rentré 2 on demande à l'user de rentrer l'id pour trouver le client correspondant
 						{
 							int id;
 							std::cout << "\nID du client : ";
@@ -218,7 +218,7 @@ int main() {
 				}
 					break;
 
-				case 4:
+				case 4: // Vu que l'user a rentré 4 on clear l'affichage et on affiche le menu de gestion du panier des clients
 				{
 					system("clear");
 					std::cout << "------------------------- AJOUTER AU PANIER -------------------------" << std::endl;
@@ -227,8 +227,8 @@ int main() {
 					std::cout << "	1°) Nom/Prenom" << std::endl;
 					std::cout << "	2°) ID" << std::endl;
 					std::cin >> choix;
-					switch(choix) {
-						case 1 :
+					switch(choix) { // Cette boucle permet de proposer à l'user de choisir le client en le recherchant par son Nom/Prénom ou son ID
+						case 1 : // Vu que l'user a rentré 1 on demande à l'user de rentré le nom et prénom du client mais aussi l'objet qu'il veut ajouter à son panier et la quantité de cet objet
 						{
 							std::string nom, prenom, titre;
 							int quantite;
@@ -242,11 +242,11 @@ int main() {
 							std::cout << "\nQuantité de " << titre << " à ajouter : ";
 							std::cin >> quantite;
 							EasyStore.addtoPanier(titre, quantite, nom, prenom);
-							std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+							std::this_thread::sleep_for(std::chrono::milliseconds(2000)); // Temps de latence de 2000ms soit 2s pour faire comme si on s'enregistrait les données et pour la visibilité
 						}
 							break;
 
-						case 2 :
+						case 2 : // Vu que l'user a rentré 1 on demande à l'user de saisir l'ID du client concerné puis du produit à ajouter au panier ainsi que la quantité du produit désiré ajoutée au panier
 						{
 							int id, quantite;
 							std::string titre;
@@ -265,7 +265,7 @@ int main() {
 				}
 					break;
 
-				case 5:
+				case 5: // Vu que l'user a rentré 5 on clear l'affichage et on affiche le menu de gestion du panier permettant de retirer un objet du panier
 				{
 					system("clear");
 					std::cout << "------------------------- RETIRER DU PANIER -------------------------" << std::endl;
@@ -275,7 +275,7 @@ int main() {
 					std::cout << "	1°) Nom/Prenom" << std::endl;
 					std::cout << "	2°) ID" << std::endl;
 					std::cin >> choix;
-					switch(choix) {
+					switch(choix) { // Vu que l'user a rentré 1 on demande à l'user de rentrer le nom et prénom du client mais aussi l'objet qu'il veut retirer de son panier
 						case 1 :
 						{
 							std::string nom, prenom;
@@ -292,7 +292,7 @@ int main() {
 						}
 							break;
 
-						case 2 :
+						case 2 :// Vu que l'user a rentré 2 on demande à l'user de rentrer l'id du client mais aussi l'objet qu'il veut retirer de son panier
 						{
 							int id;
 							std::cout << "\nID du client : ";
@@ -309,7 +309,7 @@ int main() {
 				}
 					break;
 
-				case 6:
+				case 6: // Vu que l'user a rentré 6 on clear l'affichage et on affiche le menu de gestion du panier permettant de modifier la quantité d'un objet du panier
 				{
 					system("clear");
 					std::cout << "------------------------- QUANTITE DU PANIER -------------------------" << std::endl;
@@ -318,8 +318,8 @@ int main() {
 					std::cout << "	1°) Nom/Prenom" << std::endl;
 					std::cout << "	2°) ID" << std::endl;
 					std::cin >> choix;
-					switch(choix) {
-						case 1 :
+					switch(choix) { // Cette boucle permet de proposer à l'user de choisir le client en le recherchant par son Nom/Prénom ou son ID
+						case 1 : // Vu que l'user a rentré 1 on demande à l'user de rentrer le nom et prénom du client mais aussi l'objet dont il souhaite modifier la quantité ainsi que la nouvelle quantité indiquée
 						{
 							std::string nom, prenom, titre;
 							int quantite;
@@ -337,7 +337,7 @@ int main() {
 						}
 							break;
 
-						case 2 :
+						case 2 :// Vu que l'user a rentré 2 on demande à l'user de rentrer l'id du client mais aussi l'objet dont il souhaite modifier la quantité ainsi que la nouvelle quantité indiquée
 						{
 							int id, quantite;
 							std::string titre;
@@ -356,14 +356,13 @@ int main() {
 				}
 					break;
 
-				case 0:{
-				}
+				case 0:{ // Vu que l'user a rentré 0 on retourne ua menu précédent
 					break;
 			};
 		}
 			break;
 
-		case 3:
+		case 3: // Vu que l'user a rentré 3 on clear l'affichage et on arrive dans le menu de gestion des commandes du magasin
 		{
 			system("clear");
 	        std::cout << "------------------------- COMMANDES DU MAGASIN -------------------------" << std::endl;
@@ -375,9 +374,9 @@ int main() {
 			std::cout << "\n   --> Choisissez votre menu en tapant le numéro correspondant" << std::endl;
 			std::cin >> menu3;
 
-			switch(menu3) {
+			switch(menu3) { // Cette boucle permet de proposer à l'user de sélectionner les différentes possibilités du menu Commande
 
-				case 1:
+				case 1: // Vu que l'user a rentré 1 on clear l'affichage et on demande à l'user de rentrer le nom et prénom du client ou l'id d'un client afin de créer une nouvelle commande pour ce client
 				{
 					system("clear");
 					std::cout << "------------------------- NOUVELLE COMMANDE -------------------------" << std::endl;
@@ -387,8 +386,8 @@ int main() {
 					std::cout << "	2°) ID" << std::endl;
 					std::cout << "\n	0°) Quitter" << std::endl;
 					std::cin >> choix;
-					switch(choix) {
-						case 1 :
+					switch(choix) { // Cette boucle permet de proposer à l'user de sélectionner entre deux possibilités, soit en entrant le Nom et Prénom du client ou alors son ID
+						case 1 : // Vu que l'user a rentré 1 on demande de rentrer le nom et prénom d'un client et ainsi de créer sa commande
 						{
 							std::string nom, prenom;
 							std::getline(std::cin, nom);
@@ -401,7 +400,7 @@ int main() {
 						}
 							break;
 
-						case 2 :
+						case 2 : // Vu que l'user a rentré 2 on demande de rentrer l'id d'un client et ainsi de créer sa commande
 						{
 							int id;
 							std::cout << "\nID du client : ";
@@ -418,7 +417,7 @@ int main() {
 				}
 					break;
 
-				case 2:
+				case 2:// Vu que l'user a rentré 2 on lui demande le numéro de commande mais aussi s'il veut valider cette commande
 				{
 					system("clear");
 					std::cout << "------------------------- VALIDATION DE COMMANDE -------------------------" << std::endl;
@@ -437,7 +436,7 @@ int main() {
 				}
 					break;
 
-				case 3:
+				case 3: // Vu que l'user a rentré 3 on clear l'affichage et on affiche toutes les commandes ainsi que leurs statuts
 				{
 					q = "0";
 					system("clear");
@@ -451,7 +450,7 @@ int main() {
 
 					break;
 
-				case 4:
+				case 4: // Vu que l'user a rentré 4 on clear l'affichage et on va lancer un autre do while
 				{
 					int choix;
 					do {
@@ -463,8 +462,8 @@ int main() {
 					std::cout << "	2°) Par son ID" << std::endl;
 					std::cout << "	3°) Par son N° de commande" << std::endl;
 					std::cin >> choix;
-					switch(choix) {
-						case 1 :
+					switch(choix) { // Cette boucle permet de demander à l'user s'il veut procéder à la recherche d'une commande avec son Nom/Prénom, son ID ou son N° de commande
+						case 1 : // Recherche d'une commande par Nom et Prénom
 						{
 							std::string nom, prenom;
 							std::getline(std::cin, nom);
@@ -480,7 +479,7 @@ int main() {
 						}
 							break;
 
-						case 2 :
+						case 2 : // recherche d'une commande par ID
 						{
 							int id;
 							std::cout << "ID du client : ";
@@ -493,7 +492,7 @@ int main() {
 						}
 							break;
 
-						case 3 :
+						case 3 : // Recherche d'une commande par Numéro de commande
 						{
 							int num;
 							std::cout << "\nNuméro de la commande : ";
@@ -523,7 +522,7 @@ int main() {
 	}
 		break;
 
-	case 0:
+	case 0: // On clear l'affichage et on arrête le switch
 	{
 		system("clear");
 	}
@@ -533,5 +532,5 @@ int main() {
 
 	}while(menup != 0);
 
-	return 0;
+	return 0; // Ferme la fenêtre pour l'affichage
 }

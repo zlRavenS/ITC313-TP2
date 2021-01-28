@@ -1,7 +1,7 @@
 /*
   *Fichier:	Commande.h
   *Author:	Rémi Lefaivre (Remi_Lefaivre@etu.u-bourgogne.fr)
-  *Date: 	04/01/2021
+  *Date: 	28/01/2021
   *Summary: Declaration de la classe Commande
 */
 

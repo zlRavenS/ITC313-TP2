@@ -5,7 +5,7 @@
 /*
   *Fichier:	Produit.cpp
   *Author:	Paul Ledoux (Paul_Ledoux@etu.u-bourgogne.fr)
-  *Date: 	04/01/2021
+  *Date: 	28/01/2021
   *Summary: Declaration de la classe Produit
 */
 
@@ -51,7 +51,7 @@ void Produit::setQuantite(int quantite) // Setteur permettant de
 
 
 
-std::ostream& operator << (std::ostream& output, Produit& obj) {
+std::ostream& operator << (std::ostream& output, Produit& obj) { // Surcharge de l'opérateur permettant d'afficher convenablement la liste des produits
     int sizetitre, sizedesc, sizeqtt, qtt;
     sizetitre = obj.getTitre().length();
     sizedesc = obj.getDescription().length();
